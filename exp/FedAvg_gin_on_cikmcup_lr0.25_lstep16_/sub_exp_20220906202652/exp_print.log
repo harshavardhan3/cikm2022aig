@@ -1,0 +1,3409 @@
+2022-09-06 20:26:52,247 (utils:129) INFO: the current machine is at 172.27.106.76
+2022-09-06 20:26:52,247 (utils:131) INFO: the current dir is C:\Users\Public\FederatedScope4
+2022-09-06 20:26:52,247 (utils:132) INFO: the output dir is exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220906202652
+2022-09-06 20:26:52,882 (cikm_cup:57) INFO: Loading CIKMCUP data from C:\Users\Public\FederatedScope4\data\CIKM22Competition.
+2022-09-06 20:26:52,898 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #1.
+2022-09-06 20:26:53,135 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #2.
+2022-09-06 20:26:53,150 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #3.
+2022-09-06 20:26:53,471 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #4.
+2022-09-06 20:26:53,487 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #5.
+2022-09-06 20:26:53,503 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #6.
+2022-09-06 20:26:53,766 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #7.
+2022-09-06 20:26:54,100 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #8.
+2022-09-06 20:26:54,214 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #9.
+2022-09-06 20:27:21,124 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #10.
+2022-09-06 20:27:45,452 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #11.
+2022-09-06 20:27:45,787 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #12.
+2022-09-06 20:27:45,865 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #13.
+2022-09-06 20:28:02,399 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: FedAvg_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: FedAvg
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 100
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  optimizer:
+    lr: 0.01
+    type: SGD
+  use: True
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 0
+  task: graph
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220906202652
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear', 'gnn.conv.0']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.25
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-06 20:28:02,950 (fed_runner:249) INFO: Server #0 has been set up ... 
+2022-09-06 20:28:02,950 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.263789
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: FedAvg_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: FedAvg
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 100
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  optimizer:
+    lr: 0.01
+    type: SGD
+  use: True
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220906202652
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear', 'gnn.conv.0']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.05
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-06 20:28:02,981 (fed_runner:302) INFO: Client 1 has been set up ... 
+2022-09-06 20:28:02,997 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.289617
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: FedAvg_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: FedAvg
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 100
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  optimizer:
+    lr: 0.01
+    type: SGD
+  use: True
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220906202652
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear', 'gnn.conv.0']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.003
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-06 20:28:03,012 (fed_runner:302) INFO: Client 2 has been set up ... 
+2022-09-06 20:28:03,028 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.355404
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: FedAvg_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: FedAvg
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 100
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  optimizer:
+    lr: 0.01
+    type: SGD
+  use: True
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220906202652
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear', 'gnn.conv.0']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.0004
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-06 20:28:03,059 (fed_runner:302) INFO: Client 3 has been set up ... 
+2022-09-06 20:28:03,075 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.176471
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: FedAvg_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: FedAvg
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 100
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  optimizer:
+    lr: 0.01
+    type: SGD
+  use: True
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220906202652
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear', 'gnn.conv.0']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.005
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-06 20:28:03,075 (fed_runner:302) INFO: Client 4 has been set up ... 
+2022-09-06 20:28:03,090 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.396825
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: FedAvg_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: FedAvg
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 100
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  optimizer:
+    lr: 0.01
+    type: SGD
+  use: True
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220906202652
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear', 'gnn.conv.0']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 8e-05
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-06 20:28:03,106 (fed_runner:302) INFO: Client 5 has been set up ... 
+2022-09-06 20:28:03,122 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.26158
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: FedAvg_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: FedAvg
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 100
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  optimizer:
+    lr: 0.01
+    type: SGD
+  use: True
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220906202652
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear', 'gnn.conv.0']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.0005
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-06 20:28:03,137 (fed_runner:302) INFO: Client 6 has been set up ... 
+2022-09-06 20:28:03,153 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.302378
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: FedAvg_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: FedAvg
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 100
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  optimizer:
+    lr: 0.01
+    type: SGD
+  use: True
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220906202652
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear', 'gnn.conv.0']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.005
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-06 20:28:03,184 (fed_runner:302) INFO: Client 7 has been set up ... 
+2022-09-06 20:28:03,200 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.211538
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: FedAvg_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: FedAvg
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 100
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  optimizer:
+    lr: 0.01
+    type: SGD
+  use: True
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220906202652
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear', 'gnn.conv.0']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.01
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-06 20:28:03,215 (fed_runner:302) INFO: Client 8 has been set up ... 
+2022-09-06 20:28:03,231 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: MSELoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.059199
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'mse']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: FedAvg_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: FedAvg
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 100
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  optimizer:
+    lr: 0.01
+    type: SGD
+  use: True
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 1
+  task: graphRegression
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220906202652
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear', 'gnn.conv.0']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.05
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-06 20:28:03,262 (fed_runner:302) INFO: Client 9 has been set up ... 
+2022-09-06 20:28:03,278 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: MSELoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.007083
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'mse']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: FedAvg_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: FedAvg
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 100
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  optimizer:
+    lr: 0.01
+    type: SGD
+  use: True
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 10
+  task: graphRegression
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220906202652
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear', 'gnn.conv.0']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.02
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-06 20:28:03,309 (fed_runner:302) INFO: Client 10 has been set up ... 
+2022-09-06 20:28:03,325 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: MSELoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.734011
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'mse']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: FedAvg_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: FedAvg
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 100
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  optimizer:
+    lr: 0.01
+    type: SGD
+  use: True
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 1
+  task: graphRegression
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220906202652
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear', 'gnn.conv.0']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.02
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-06 20:28:03,340 (fed_runner:302) INFO: Client 11 has been set up ... 
+2022-09-06 20:28:03,356 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: MSELoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 1.361326
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'mse']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: FedAvg_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: FedAvg
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 100
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  optimizer:
+    lr: 0.01
+    type: SGD
+  use: True
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 1
+  task: graphRegression
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220906202652
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear', 'gnn.conv.0']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.004
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-06 20:28:03,372 (fed_runner:302) INFO: Client 12 has been set up ... 
+2022-09-06 20:28:03,387 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: MSELoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.004389
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'mse']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: FedAvg_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: FedAvg
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 100
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  optimizer:
+    lr: 0.01
+    type: SGD
+  use: True
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 12
+  task: graphRegression
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220906202652
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear', 'gnn.conv.0']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.02
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-06 20:28:03,403 (fed_runner:302) INFO: Client 13 has been set up ... 
+2022-09-06 20:28:03,418 (trainer:324) INFO: Model meta-info: <class 'federatedscope.gfl.model.graph_level.GNN_Net_Graph'>.
+2022-09-06 20:28:03,418 (trainer:332) INFO: Num of original para names: 58.
+2022-09-06 20:28:03,418 (trainer:333) INFO: Num of original trainable para names: 44.
+2022-09-06 20:28:03,418 (trainer:335) INFO: Num of preserved para names in local update: 2. 
+Preserved para names in local update: {'gnn.convs.1.eps', 'gnn.convs.0.eps'}.
+2022-09-06 20:28:03,418 (trainer:339) INFO: Num of filtered para names in local update: 56. 
+Filtered para names in local update: {'encoder_atom.atom_embedding_list.6.weight', 'encoder_atom.atom_embedding_list.11.weight', 'gnn.convs.0.nn.norms.1.num_batches_tracked', 'clf.bias', 'encoder.bias', 'gnn.convs.1.nn.norms.0.bias', 'gnn.convs.1.nn.norms.1.num_batches_tracked', 'gnn.convs.0.nn.norms.1.bias', 'gnn.convs.1.nn.norms.0.running_mean', 'gnn.convs.1.nn.norms.0.running_var', 'gnn.convs.0.nn.norms.0.running_mean', 'encoder_atom.atom_embedding_list.3.weight', 'encoder_atom.atom_embedding_list.4.weight', 'gnn.convs.1.nn.linears.0.weight', 'gnn.convs.1.nn.norms.1.weight', 'gnn.convs.1.nn.linears.1.bias', 'gnn.convs.0.nn.norms.1.running_var', 'gnn.convs.0.nn.linears.1.weight', 'encoder.weight', 'encoder_atom.atom_embedding_list.8.weight', 'encoder_atom.atom_embedding_list.13.weight', 'encoder_atom.atom_embedding_list.19.weight', 'clf.weight', 'encoder_atom.atom_embedding_list.21.weight', 'gnn.convs.0.nn.norms.0.weight', 'linear.0.bias', 'encoder_atom.atom_embedding_list.1.weight', 'encoder_atom.atom_embedding_list.5.weight', 'encoder_atom.atom_embedding_list.7.weight', 'gnn.convs.1.nn.norms.0.num_batches_tracked', 'gnn.convs.0.nn.norms.0.num_batches_tracked', 'encoder_atom.atom_embedding_list.9.weight', 'encoder_atom.atom_embedding_list.17.weight', 'encoder_atom.atom_embedding_list.16.weight', 'gnn.convs.0.nn.linears.0.bias', 'gnn.convs.1.nn.norms.1.running_var', 'encoder_atom.atom_embedding_list.20.weight', 'gnn.convs.1.nn.linears.0.bias', 'gnn.convs.1.nn.norms.0.weight', 'encoder_atom.atom_embedding_list.18.weight', 'gnn.convs.0.nn.norms.1.weight', 'gnn.convs.1.nn.norms.1.bias', 'gnn.convs.1.nn.norms.1.running_mean', 'encoder_atom.atom_embedding_list.14.weight', 'encoder_atom.atom_embedding_list.2.weight', 'gnn.convs.0.nn.linears.0.weight', 'encoder_atom.atom_embedding_list.0.weight', 'gnn.convs.0.nn.norms.1.running_mean', 'gnn.convs.1.nn.linears.1.weight', 'gnn.convs.0.nn.norms.0.bias', 'encoder_atom.atom_embedding_list.12.weight', 'gnn.convs.0.nn.linears.1.bias', 'encoder_atom.atom_embedding_list.10.weight', 'linear.0.weight', 'encoder_atom.atom_embedding_list.15.weight', 'gnn.convs.0.nn.norms.0.running_var'}.
+2022-09-06 20:28:03,418 (trainer:344) INFO: After register default hooks,
+	the hooks_in_train is:
+	{
+	  "on_fit_start": [
+	    "_hook_on_fit_start_init",
+	    "_hook_on_fit_start_calculate_model_size",
+	    "record_initialization_local",
+	    "record_initialization_global"
+	  ],
+	  "on_epoch_start": [
+	    "_hook_on_epoch_start"
+	  ],
+	  "on_batch_start": [
+	    "_hook_on_batch_start_init"
+	  ],
+	  "on_batch_forward": [
+	    "_hook_on_batch_forward",
+	    "_hook_on_batch_forward_regularizer",
+	    "_hook_on_batch_forward_flop_count"
+	  ],
+	  "on_batch_backward": [
+	    "_hook_on_batch_backward"
+	  ],
+	  "on_batch_end": [
+	    "_hook_on_batch_end"
+	  ],
+	  "on_fit_end": [
+	    "_hook_on_fit_end",
+	    "del_initialization_local",
+	    "del_initialization_global"
+	  ]
+	};
+	the hooks_in_eval is:
+            t{
+	  "on_fit_start": [
+	    "_hook_on_fit_start_init",
+	    "record_initialization_local",
+	    "record_initialization_global"
+	  ],
+	  "on_epoch_start": [
+	    "_hook_on_epoch_start"
+	  ],
+	  "on_batch_start": [
+	    "_hook_on_batch_start_init"
+	  ],
+	  "on_batch_forward": [
+	    "_hook_on_batch_forward"
+	  ],
+	  "on_batch_end": [
+	    "_hook_on_batch_end"
+	  ],
+	  "on_fit_end": [
+	    "_hook_on_fit_end",
+	    "del_initialization_local",
+	    "del_initialization_global"
+	  ]
+	}
+2022-09-06 20:28:03,434 (server:635) INFO: ----------- Starting training (Round #0) -------------
+2022-09-06 20:28:07,135 (client:259) INFO: {'Role': 'Client #7', 'Round': 0, 'Results_raw': {'train_total': 1024, 'train_loss': 1061.101486, 'train_imp_ratio': -44.686452, 'train_avg_loss': 1.036232, 'train_acc': 0.5625}}
+2022-09-06 20:28:08,201 (client:259) INFO: {'Role': 'Client #12', 'Round': 0, 'Results_raw': {'train_mse': 7.092139, 'train_total': 992, 'train_loss': 6798.167664, 'train_imp_ratio': -420.972878, 'train_avg_loss': 6.852992}}
+2022-09-06 20:28:09,211 (client:259) INFO: {'Role': 'Client #5', 'Round': 0, 'Results_raw': {'train_total': 1004, 'train_loss': 1126.686114, 'train_imp_ratio': -17.717249, 'train_avg_loss': 1.122197, 'train_acc': 0.532869}}
+2022-09-06 20:28:10,349 (client:259) INFO: {'Role': 'Client #11', 'Round': 0, 'Results_raw': {'train_mse': 2.40302, 'train_total': 1024, 'train_loss': 1999.111275, 'train_imp_ratio': -227.381969, 'train_avg_loss': 1.952257}}
+2022-09-06 20:28:11,503 (client:259) INFO: {'Role': 'Client #3', 'Round': 0, 'Results_raw': {'train_total': 1024, 'train_loss': 1006.716961, 'train_imp_ratio': -22.27502, 'train_avg_loss': 0.983122, 'train_acc': 0.56543}}
+2022-09-06 20:28:12,717 (client:259) INFO: {'Role': 'Client #9', 'Round': 0, 'Results_raw': {'train_mse': 0.456711, 'train_total': 1024, 'train_loss': 385.913249, 'train_imp_ratio': -671.483903, 'train_avg_loss': 0.376868}}
+2022-09-06 20:28:14,565 (client:259) INFO: {'Role': 'Client #2', 'Round': 0, 'Results_raw': {'train_total': 969, 'train_loss': 1077.480512, 'train_imp_ratio': -84.222519, 'train_avg_loss': 1.111951, 'train_acc': 0.46646}}
+2022-09-06 20:28:15,640 (client:259) INFO: {'Role': 'Client #8', 'Round': 0, 'Results_raw': {'train_total': 969, 'train_loss': 764.023017, 'train_imp_ratio': -3.424562, 'train_avg_loss': 0.788465, 'train_acc': 0.781218}}
+2022-09-06 20:28:16,739 (client:259) INFO: {'Role': 'Client #10', 'Round': 0, 'Results_raw': {'train_mse': 0.103273, 'train_total': 1024, 'train_loss': 89.113227, 'train_imp_ratio': -1358.047276, 'train_avg_loss': 0.087025}}
+2022-09-06 20:28:17,711 (client:259) INFO: {'Role': 'Client #4', 'Round': 0, 'Results_raw': {'train_total': 808, 'train_loss': 846.88469, 'train_imp_ratio': -125.824556, 'train_avg_loss': 1.048125, 'train_acc': 0.601485}}
+2022-09-06 20:28:18,857 (client:259) INFO: {'Role': 'Client #1', 'Round': 0, 'Results_raw': {'train_total': 1024, 'train_loss': 973.676693, 'train_imp_ratio': -51.044016, 'train_avg_loss': 0.950856, 'train_acc': 0.601562}}
+2022-09-06 20:28:19,978 (client:259) INFO: {'Role': 'Client #6', 'Round': 0, 'Results_raw': {'train_total': 1024, 'train_loss': 1101.405647, 'train_imp_ratio': -181.119184, 'train_avg_loss': 1.075591, 'train_acc': 0.264648}}
+2022-09-06 20:28:21,110 (client:259) INFO: {'Role': 'Client #13', 'Round': 0, 'Results_raw': {'train_mse': 0.134236, 'train_total': 1024, 'train_loss': 110.856263, 'train_imp_ratio': -2958.463844, 'train_avg_loss': 0.108258}}
+2022-09-06 20:28:21,126 (server:321) INFO: ----------- Starting a new training round (Round #1) -------------
+2022-09-06 20:28:22,253 (client:259) INFO: {'Role': 'Client #6', 'Round': 1, 'Results_raw': {'train_total': 1024, 'train_loss': 1122.827675, 'train_imp_ratio': -171.039214, 'train_avg_loss': 1.096511, 'train_acc': 0.291016}}
+2022-09-06 20:28:23,422 (client:259) INFO: {'Role': 'Client #3', 'Round': 1, 'Results_raw': {'train_total': 1024, 'train_loss': 1011.188808, 'train_imp_ratio': -22.824571, 'train_avg_loss': 0.987489, 'train_acc': 0.563477}}
+2022-09-06 20:28:24,397 (client:259) INFO: {'Role': 'Client #4', 'Round': 1, 'Results_raw': {'train_total': 808, 'train_loss': 732.389841, 'train_imp_ratio': -95.66786, 'train_avg_loss': 0.906423, 'train_acc': 0.654703}}
+2022-09-06 20:28:25,472 (client:259) INFO: {'Role': 'Client #5', 'Round': 1, 'Results_raw': {'train_total': 1004, 'train_loss': 1123.698156, 'train_imp_ratio': -9.936365, 'train_avg_loss': 1.119221, 'train_acc': 0.563745}}
+2022-09-06 20:28:26,609 (client:259) INFO: {'Role': 'Client #12', 'Round': 1, 'Results_raw': {'train_mse': 2.861285, 'train_total': 992, 'train_loss': 7097.109146, 'train_imp_ratio': -110.183689, 'train_avg_loss': 7.154344}}
+2022-09-06 20:28:27,786 (client:259) INFO: {'Role': 'Client #1', 'Round': 1, 'Results_raw': {'train_total': 1024, 'train_loss': 1105.034737, 'train_imp_ratio': -33.274132, 'train_avg_loss': 1.079135, 'train_acc': 0.648438}}
+2022-09-06 20:28:28,887 (client:259) INFO: {'Role': 'Client #10', 'Round': 1, 'Results_raw': {'train_mse': 0.024372, 'train_total': 1024, 'train_loss': 36.52748, 'train_imp_ratio': -244.095093, 'train_avg_loss': 0.035671}}
+2022-09-06 20:28:30,033 (client:259) INFO: {'Role': 'Client #13', 'Round': 1, 'Results_raw': {'train_mse': 0.024054, 'train_total': 1024, 'train_loss': 46.2525, 'train_imp_ratio': -448.058148, 'train_avg_loss': 0.045168}}
+2022-09-06 20:28:31,108 (client:259) INFO: {'Role': 'Client #8', 'Round': 1, 'Results_raw': {'train_total': 969, 'train_loss': 500.173162, 'train_imp_ratio': 22.431579, 'train_avg_loss': 0.516175, 'train_acc': 0.835913}}
+2022-09-06 20:28:32,276 (client:259) INFO: {'Role': 'Client #7', 'Round': 1, 'Results_raw': {'train_total': 1024, 'train_loss': 1038.566608, 'train_imp_ratio': -49.853825, 'train_avg_loss': 1.014225, 'train_acc': 0.546875}}
+2022-09-06 20:28:33,376 (client:259) INFO: {'Role': 'Client #2', 'Round': 1, 'Results_raw': {'train_total': 969, 'train_loss': 1046.711801, 'train_imp_ratio': -36.830652, 'train_avg_loss': 1.080198, 'train_acc': 0.603715}}
+2022-09-06 20:28:34,535 (client:259) INFO: {'Role': 'Client #11', 'Round': 1, 'Results_raw': {'train_mse': 1.500521, 'train_total': 1024, 'train_loss': 1225.034176, 'train_imp_ratio': -104.427615, 'train_avg_loss': 1.196322}}
+2022-09-06 20:28:35,730 (client:259) INFO: {'Role': 'Client #9', 'Round': 1, 'Results_raw': {'train_mse': 0.115465, 'train_total': 1024, 'train_loss': 174.933805, 'train_imp_ratio': -95.044745, 'train_avg_loss': 0.170834}}
+2022-09-06 20:28:35,735 (server:321) INFO: ----------- Starting a new training round (Round #2) -------------
+2022-09-06 20:28:36,886 (client:259) INFO: {'Role': 'Client #11', 'Round': 2, 'Results_raw': {'train_mse': 1.398642, 'train_total': 1024, 'train_loss': 1181.51366, 'train_imp_ratio': -90.547818, 'train_avg_loss': 1.153822}}
+2022-09-06 20:28:37,961 (client:259) INFO: {'Role': 'Client #2', 'Round': 2, 'Results_raw': {'train_total': 969, 'train_loss': 990.37838, 'train_imp_ratio': -35.761663, 'train_avg_loss': 1.022062, 'train_acc': 0.606811}}
+2022-09-06 20:28:39,113 (client:259) INFO: {'Role': 'Client #7', 'Round': 2, 'Results_raw': {'train_total': 1024, 'train_loss': 1023.93763, 'train_imp_ratio': -42.425726, 'train_avg_loss': 0.999939, 'train_acc': 0.569336}}
+2022-09-06 20:28:40,187 (client:259) INFO: {'Role': 'Client #8', 'Round': 2, 'Results_raw': {'train_total': 969, 'train_loss': 500.794656, 'train_imp_ratio': 22.431579, 'train_avg_loss': 0.516816, 'train_acc': 0.835913}}
+2022-09-06 20:28:41,381 (client:259) INFO: {'Role': 'Client #3', 'Round': 2, 'Results_raw': {'train_total': 1024, 'train_loss': 1007.937057, 'train_imp_ratio': -21.450694, 'train_avg_loss': 0.984314, 'train_acc': 0.568359}}
+2022-09-06 20:28:42,520 (client:259) INFO: {'Role': 'Client #13', 'Round': 2, 'Results_raw': {'train_mse': 0.01926, 'train_total': 1024, 'train_loss': 40.698133, 'train_imp_ratio': -338.814795, 'train_avg_loss': 0.039744}}
+2022-09-06 20:28:43,655 (client:259) INFO: {'Role': 'Client #6', 'Round': 2, 'Results_raw': {'train_total': 1024, 'train_loss': 1157.339859, 'train_imp_ratio': -129.972666, 'train_avg_loss': 1.130215, 'train_acc': 0.398438}}
+2022-09-06 20:28:44,792 (client:259) INFO: {'Role': 'Client #12', 'Round': 2, 'Results_raw': {'train_mse': 2.62165, 'train_total': 992, 'train_loss': 8109.713058, 'train_imp_ratio': -92.58058, 'train_avg_loss': 8.175114}}
+2022-09-06 20:28:45,960 (client:259) INFO: {'Role': 'Client #1', 'Round': 2, 'Results_raw': {'train_total': 1024, 'train_loss': 1161.553146, 'train_imp_ratio': -41.788868, 'train_avg_loss': 1.134329, 'train_acc': 0.625977}}
+2022-09-06 20:28:46,941 (client:259) INFO: {'Role': 'Client #4', 'Round': 2, 'Results_raw': {'train_total': 808, 'train_loss': 684.321229, 'train_imp_ratio': -91.459949, 'train_avg_loss': 0.846932, 'train_acc': 0.662129}}
+2022-09-06 20:28:48,034 (client:259) INFO: {'Role': 'Client #5', 'Round': 2, 'Results_raw': {'train_total': 1004, 'train_loss': 1119.692111, 'train_imp_ratio': -16.211272, 'train_avg_loss': 1.115231, 'train_acc': 0.538845}}
+2022-09-06 20:28:49,138 (client:259) INFO: {'Role': 'Client #10', 'Round': 2, 'Results_raw': {'train_mse': 0.022044, 'train_total': 1024, 'train_loss': 34.481601, 'train_imp_ratio': -211.224363, 'train_avg_loss': 0.033673}}
+2022-09-06 20:28:50,339 (client:259) INFO: {'Role': 'Client #9', 'Round': 2, 'Results_raw': {'train_mse': 0.093698, 'train_total': 1024, 'train_loss': 270.737534, 'train_imp_ratio': -58.276414, 'train_avg_loss': 0.264392}}
+2022-09-06 20:28:50,339 (server:321) INFO: ----------- Starting a new training round (Round #3) -------------
+2022-09-06 20:28:51,476 (client:259) INFO: {'Role': 'Client #6', 'Round': 3, 'Results_raw': {'train_total': 1024, 'train_loss': 1141.408775, 'train_imp_ratio': -52.319558, 'train_avg_loss': 1.114657, 'train_acc': 0.601562}}
+2022-09-06 20:28:52,550 (client:259) INFO: {'Role': 'Client #5', 'Round': 3, 'Results_raw': {'train_total': 1004, 'train_loss': 1113.293352, 'train_imp_ratio': -14.95629, 'train_avg_loss': 1.108858, 'train_acc': 0.543825}}
+2022-09-06 20:28:53,712 (client:259) INFO: {'Role': 'Client #3', 'Round': 3, 'Results_raw': {'train_total': 1024, 'train_loss': 1002.284832, 'train_imp_ratio': -20.076818, 'train_avg_loss': 0.978794, 'train_acc': 0.573242}}
+2022-09-06 20:28:54,944 (client:259) INFO: {'Role': 'Client #11', 'Round': 3, 'Results_raw': {'train_mse': 1.379777, 'train_total': 1024, 'train_loss': 1333.815029, 'train_imp_ratio': -87.977743, 'train_avg_loss': 1.302554}}
+2022-09-06 20:28:56,128 (client:259) INFO: {'Role': 'Client #9', 'Round': 3, 'Results_raw': {'train_mse': 0.087653, 'train_total': 1024, 'train_loss': 265.126659, 'train_imp_ratio': -48.064667, 'train_avg_loss': 0.258913}}
+2022-09-06 20:28:57,296 (client:259) INFO: {'Role': 'Client #7', 'Round': 3, 'Results_raw': {'train_total': 1024, 'train_loss': 1021.729118, 'train_imp_ratio': -45.655335, 'train_avg_loss': 0.997782, 'train_acc': 0.55957}}
+2022-09-06 20:28:58,411 (client:259) INFO: {'Role': 'Client #10', 'Round': 3, 'Results_raw': {'train_mse': 0.020533, 'train_total': 1024, 'train_loss': 32.128188, 'train_imp_ratio': -189.891672, 'train_avg_loss': 0.031375}}
+2022-09-06 20:28:59,485 (client:259) INFO: {'Role': 'Client #2', 'Round': 3, 'Results_raw': {'train_total': 969, 'train_loss': 968.68309, 'train_imp_ratio': -35.405333, 'train_avg_loss': 0.999673, 'train_acc': 0.607843}}
+2022-09-06 20:29:00,670 (client:259) INFO: {'Role': 'Client #1', 'Round': 3, 'Results_raw': {'train_total': 1024, 'train_loss': 1445.640076, 'train_imp_ratio': -19.576513, 'train_avg_loss': 1.411758, 'train_acc': 0.68457}}
+2022-09-06 20:29:01,735 (client:259) INFO: {'Role': 'Client #8', 'Round': 3, 'Results_raw': {'train_total': 969, 'train_loss': 492.327015, 'train_imp_ratio': 20.968023, 'train_avg_loss': 0.508077, 'train_acc': 0.832817}}
+2022-09-06 20:29:02,881 (client:259) INFO: {'Role': 'Client #12', 'Round': 3, 'Results_raw': {'train_mse': 2.387124, 'train_total': 992, 'train_loss': 9268.430847, 'train_imp_ratio': -75.352842, 'train_avg_loss': 9.343176}}
+2022-09-06 20:29:04,018 (client:259) INFO: {'Role': 'Client #13', 'Round': 3, 'Results_raw': {'train_mse': 0.017452, 'train_total': 1024, 'train_loss': 35.778459, 'train_imp_ratio': -297.625086, 'train_avg_loss': 0.03494}}
+2022-09-06 20:29:04,999 (client:259) INFO: {'Role': 'Client #4', 'Round': 3, 'Results_raw': {'train_total': 808, 'train_loss': 704.057085, 'train_imp_ratio': -76.732261, 'train_avg_loss': 0.871358, 'train_acc': 0.688119}}
+2022-09-06 20:29:04,999 (server:321) INFO: ----------- Starting a new training round (Round #4) -------------
+2022-09-06 20:29:06,133 (client:259) INFO: {'Role': 'Client #12', 'Round': 4, 'Results_raw': {'train_mse': 2.199709, 'train_total': 992, 'train_loss': 9404.281525, 'train_imp_ratio': -61.585793, 'train_avg_loss': 9.480123}}
+2022-09-06 20:29:07,316 (client:259) INFO: {'Role': 'Client #9', 'Round': 4, 'Results_raw': {'train_mse': 0.076539, 'train_total': 1024, 'train_loss': 307.156295, 'train_imp_ratio': -29.291002, 'train_avg_loss': 0.299957}}
+2022-09-06 20:29:08,397 (client:259) INFO: {'Role': 'Client #2', 'Round': 4, 'Results_raw': {'train_total': 969, 'train_loss': 947.67785, 'train_imp_ratio': -33.267354, 'train_avg_loss': 0.977996, 'train_acc': 0.614035}}
+2022-09-06 20:29:09,534 (client:259) INFO: {'Role': 'Client #6', 'Round': 4, 'Results_raw': {'train_total': 1024, 'train_loss': 1093.805435, 'train_imp_ratio': -19.46632, 'train_avg_loss': 1.068169, 'train_acc': 0.6875}}
+2022-09-06 20:29:10,703 (client:259) INFO: {'Role': 'Client #7', 'Round': 4, 'Results_raw': {'train_total': 1024, 'train_loss': 1037.785336, 'train_imp_ratio': -46.624217, 'train_avg_loss': 1.013462, 'train_acc': 0.556641}}
+2022-09-06 20:29:11,773 (client:259) INFO: {'Role': 'Client #5', 'Round': 4, 'Results_raw': {'train_total': 1004, 'train_loss': 1113.65667, 'train_imp_ratio': -12.94832, 'train_avg_loss': 1.10922, 'train_acc': 0.551793}}
+2022-09-06 20:29:12,892 (client:259) INFO: {'Role': 'Client #10', 'Round': 4, 'Results_raw': {'train_mse': 0.019373, 'train_total': 1024, 'train_loss': 31.661716, 'train_imp_ratio': -173.510545, 'train_avg_loss': 0.03092}}
+2022-09-06 20:29:14,051 (client:259) INFO: {'Role': 'Client #1', 'Round': 4, 'Results_raw': {'train_total': 1024, 'train_loss': 1718.401848, 'train_imp_ratio': -15.874454, 'train_avg_loss': 1.678127, 'train_acc': 0.694336}}
+2022-09-06 20:29:15,213 (client:259) INFO: {'Role': 'Client #11', 'Round': 4, 'Results_raw': {'train_mse': 1.339026, 'train_total': 1024, 'train_loss': 1476.570511, 'train_imp_ratio': -82.425889, 'train_avg_loss': 1.441963}}
+2022-09-06 20:29:16,350 (client:259) INFO: {'Role': 'Client #13', 'Round': 4, 'Results_raw': {'train_mse': 0.016156, 'train_total': 1024, 'train_loss': 31.742221, 'train_imp_ratio': -268.091062, 'train_avg_loss': 0.030998}}
+2022-09-06 20:29:17,512 (client:259) INFO: {'Role': 'Client #3', 'Round': 4, 'Results_raw': {'train_total': 1024, 'train_loss': 1004.682476, 'train_imp_ratio': -17.60384, 'train_avg_loss': 0.981135, 'train_acc': 0.582031}}
+2022-09-06 20:29:18,517 (client:259) INFO: {'Role': 'Client #4', 'Round': 4, 'Results_raw': {'train_total': 808, 'train_loss': 787.417793, 'train_imp_ratio': -45.172929, 'train_avg_loss': 0.974527, 'train_acc': 0.743812}}
+2022-09-06 20:29:19,617 (client:259) INFO: {'Role': 'Client #8', 'Round': 4, 'Results_raw': {'train_total': 969, 'train_loss': 504.798134, 'train_imp_ratio': 22.431579, 'train_avg_loss': 0.520948, 'train_acc': 0.835913}}
+2022-09-06 20:29:19,617 (server:314) INFO: Server #0: Starting evaluation at the end of round 4.
+2022-09-06 20:29:19,617 (server:321) INFO: ----------- Starting a new training round (Round #5) -------------
+2022-09-06 20:30:49,046 (client:259) INFO: {'Role': 'Client #6', 'Round': 5, 'Results_raw': {'train_total': 1024, 'train_loss': 1050.224442, 'train_imp_ratio': -6.399691, 'train_avg_loss': 1.02561, 'train_acc': 0.72168}}
+2022-09-06 20:30:50,547 (client:259) INFO: {'Role': 'Client #1', 'Round': 5, 'Results_raw': {'train_total': 1024, 'train_loss': 1705.879608, 'train_imp_ratio': -18.836101, 'train_avg_loss': 1.665898, 'train_acc': 0.686523}}
+2022-09-06 20:30:51,675 (client:259) INFO: {'Role': 'Client #13', 'Round': 5, 'Results_raw': {'train_mse': 0.015273, 'train_total': 1024, 'train_loss': 28.879662, 'train_imp_ratio': -247.985593, 'train_avg_loss': 0.028203}}
+2022-09-06 20:30:52,835 (client:259) INFO: {'Role': 'Client #3', 'Round': 5, 'Results_raw': {'train_total': 1024, 'train_loss': 1004.439251, 'train_imp_ratio': -23.923672, 'train_avg_loss': 0.980898, 'train_acc': 0.55957}}
+2022-09-06 20:30:53,827 (client:259) INFO: {'Role': 'Client #4', 'Round': 5, 'Results_raw': {'train_total': 808, 'train_loss': 898.127357, 'train_imp_ratio': -21.3281, 'train_avg_loss': 1.111544, 'train_acc': 0.785891}}
+2022-09-06 20:30:54,990 (client:259) INFO: {'Role': 'Client #7', 'Round': 5, 'Results_raw': {'train_total': 1024, 'train_loss': 1043.964699, 'train_imp_ratio': -42.102765, 'train_avg_loss': 1.019497, 'train_acc': 0.570312}}
+2022-09-06 20:30:56,049 (client:259) INFO: {'Role': 'Client #8', 'Round': 5, 'Results_raw': {'train_total': 969, 'train_loss': 492.965154, 'train_imp_ratio': 21.943727, 'train_avg_loss': 0.508736, 'train_acc': 0.834881}}
+2022-09-06 20:30:57,186 (client:259) INFO: {'Role': 'Client #12', 'Round': 5, 'Results_raw': {'train_mse': 2.09542, 'train_total': 992, 'train_loss': 10344.044067, 'train_imp_ratio': -53.92495, 'train_avg_loss': 10.427464}}
+2022-09-06 20:30:58,245 (client:259) INFO: {'Role': 'Client #2', 'Round': 5, 'Results_raw': {'train_total': 969, 'train_loss': 949.223747, 'train_imp_ratio': -32.198364, 'train_avg_loss': 0.979591, 'train_acc': 0.617131}}
+2022-09-06 20:30:59,445 (client:259) INFO: {'Role': 'Client #9', 'Round': 5, 'Results_raw': {'train_mse': 0.080808, 'train_total': 1024, 'train_loss': 322.764326, 'train_imp_ratio': -36.502455, 'train_avg_loss': 0.3152}}
+2022-09-06 20:31:00,612 (client:259) INFO: {'Role': 'Client #11', 'Round': 5, 'Results_raw': {'train_mse': 1.35613, 'train_total': 1024, 'train_loss': 1793.65406, 'train_imp_ratio': -84.75612, 'train_avg_loss': 1.751615}}
+2022-09-06 20:31:01,725 (client:259) INFO: {'Role': 'Client #10', 'Round': 5, 'Results_raw': {'train_mse': 0.017684, 'train_total': 1024, 'train_loss': 28.980705, 'train_imp_ratio': -149.665059, 'train_avg_loss': 0.028301}}
+2022-09-06 20:31:02,825 (client:259) INFO: {'Role': 'Client #5', 'Round': 5, 'Results_raw': {'train_total': 1004, 'train_loss': 1108.83733, 'train_imp_ratio': -11.944335, 'train_avg_loss': 1.10442, 'train_acc': 0.555777}}
+2022-09-06 20:31:02,825 (server:487) INFO: {'Role': 'Server #', 'Round': 5, 'Results_avg': {'test_total': 8350.846154, 'test_loss': 8374.786639, 'test_imp_ratio': -1039.159067, 'test_avg_loss': 2.245924, 'test_acc': 0.570954, 'val_total': 8350.461538, 'val_loss': 433.549225, 'val_imp_ratio': -51.970658, 'val_avg_loss': 0.559342, 'val_acc': 0.646261, 'test_mse': 5.906368, 'val_mse': 0.884731}}
+2022-09-06 20:31:02,825 (server:321) INFO: ----------- Starting a new training round (Round #6) -------------
+2022-09-06 20:31:03,917 (client:259) INFO: {'Role': 'Client #2', 'Round': 6, 'Results_raw': {'train_total': 969, 'train_loss': 942.653785, 'train_imp_ratio': -25.428098, 'train_avg_loss': 0.972811, 'train_acc': 0.636739}}
+2022-09-06 20:31:05,084 (client:259) INFO: {'Role': 'Client #3', 'Round': 6, 'Results_raw': {'train_total': 1024, 'train_loss': 1009.493885, 'train_imp_ratio': -25.572324, 'train_avg_loss': 0.985834, 'train_acc': 0.553711}}
+2022-09-06 20:31:06,226 (client:259) INFO: {'Role': 'Client #13', 'Round': 6, 'Results_raw': {'train_mse': 0.014774, 'train_total': 1024, 'train_loss': 28.158905, 'train_imp_ratio': -236.613208, 'train_avg_loss': 0.027499}}
+2022-09-06 20:31:07,285 (client:259) INFO: {'Role': 'Client #8', 'Round': 6, 'Results_raw': {'train_total': 969, 'train_loss': 498.400649, 'train_imp_ratio': 18.528765, 'train_avg_loss': 0.514345, 'train_acc': 0.827657}}
+2022-09-06 20:31:08,407 (client:259) INFO: {'Role': 'Client #10', 'Round': 6, 'Results_raw': {'train_mse': 0.016778, 'train_total': 1024, 'train_loss': 28.53893, 'train_imp_ratio': -136.881364, 'train_avg_loss': 0.02787}}
+2022-09-06 20:31:09,575 (client:259) INFO: {'Role': 'Client #7', 'Round': 6, 'Results_raw': {'train_total': 1024, 'train_loss': 1051.187065, 'train_imp_ratio': -39.519079, 'train_avg_loss': 1.02655, 'train_acc': 0.578125}}
+2022-09-06 20:31:10,774 (client:259) INFO: {'Role': 'Client #9', 'Round': 6, 'Results_raw': {'train_mse': 0.074307, 'train_total': 1024, 'train_loss': 331.740174, 'train_imp_ratio': -25.520088, 'train_avg_loss': 0.323965}}
+2022-09-06 20:31:11,953 (client:259) INFO: {'Role': 'Client #11', 'Round': 6, 'Results_raw': {'train_mse': 1.273563, 'train_total': 1024, 'train_loss': 2176.604568, 'train_imp_ratio': -73.507284, 'train_avg_loss': 2.12559}}
+2022-09-06 20:31:13,053 (client:259) INFO: {'Role': 'Client #5', 'Round': 6, 'Results_raw': {'train_total': 1004, 'train_loss': 1102.022518, 'train_imp_ratio': -4.91644, 'train_avg_loss': 1.097632, 'train_acc': 0.583665}}
+2022-09-06 20:31:14,175 (client:259) INFO: {'Role': 'Client #6', 'Round': 6, 'Results_raw': {'train_total': 1024, 'train_loss': 1019.912663, 'train_imp_ratio': -4.906362, 'train_avg_loss': 0.996008, 'train_acc': 0.725586}}
+2022-09-06 20:31:15,162 (client:259) INFO: {'Role': 'Client #4', 'Round': 6, 'Results_raw': {'train_total': 808, 'train_loss': 1023.086923, 'train_imp_ratio': -8.003048, 'train_avg_loss': 1.266197, 'train_acc': 0.809406}}
+2022-09-06 20:31:16,314 (client:259) INFO: {'Role': 'Client #1', 'Round': 6, 'Results_raw': {'train_total': 1024, 'train_loss': 1936.454315, 'train_imp_ratio': -8.100129, 'train_avg_loss': 1.891069, 'train_acc': 0.714844}}
+2022-09-06 20:31:17,451 (client:259) INFO: {'Role': 'Client #12', 'Round': 6, 'Results_raw': {'train_mse': 2.19379, 'train_total': 992, 'train_loss': 9160.910461, 'train_imp_ratio': -61.150981, 'train_avg_loss': 9.234789}}
+2022-09-06 20:31:17,451 (server:321) INFO: ----------- Starting a new training round (Round #7) -------------
+2022-09-06 20:31:18,619 (client:259) INFO: {'Role': 'Client #11', 'Round': 7, 'Results_raw': {'train_mse': 1.344528, 'train_total': 1024, 'train_loss': 2024.203789, 'train_imp_ratio': -83.175516, 'train_avg_loss': 1.976762}}
+2022-09-06 20:31:19,790 (client:259) INFO: {'Role': 'Client #3', 'Round': 7, 'Results_raw': {'train_total': 1024, 'train_loss': 1008.20636, 'train_imp_ratio': -24.198447, 'train_avg_loss': 0.984577, 'train_acc': 0.558594}}
+2022-09-06 20:31:20,926 (client:259) INFO: {'Role': 'Client #10', 'Round': 7, 'Results_raw': {'train_mse': 0.01634, 'train_total': 1024, 'train_loss': 27.965305, 'train_imp_ratio': -130.700028, 'train_avg_loss': 0.02731}}
+2022-09-06 20:31:21,992 (client:259) INFO: {'Role': 'Client #2', 'Round': 7, 'Results_raw': {'train_total': 969, 'train_loss': 940.219365, 'train_imp_ratio': -26.497087, 'train_avg_loss': 0.970299, 'train_acc': 0.633643}}
+2022-09-06 20:31:23,157 (client:259) INFO: {'Role': 'Client #1', 'Round': 7, 'Results_raw': {'train_total': 1024, 'train_loss': 2012.881721, 'train_imp_ratio': -4.768276, 'train_avg_loss': 1.965705, 'train_acc': 0.723633}}
+2022-09-06 20:31:24,317 (client:259) INFO: {'Role': 'Client #7', 'Round': 7, 'Results_raw': {'train_total': 1024, 'train_loss': 1068.331688, 'train_imp_ratio': -34.028745, 'train_avg_loss': 1.043293, 'train_acc': 0.594727}}
+2022-09-06 20:31:25,439 (client:259) INFO: {'Role': 'Client #6', 'Round': 7, 'Results_raw': {'train_total': 1024, 'train_loss': 982.847118, 'train_imp_ratio': -0.799708, 'train_avg_loss': 0.959812, 'train_acc': 0.736328}}
+2022-09-06 20:31:26,623 (client:259) INFO: {'Role': 'Client #12', 'Round': 7, 'Results_raw': {'train_mse': 1.985334, 'train_total': 992, 'train_loss': 10121.711853, 'train_imp_ratio': -45.838217, 'train_avg_loss': 10.203339}}
+2022-09-06 20:31:27,688 (client:259) INFO: {'Role': 'Client #8', 'Round': 7, 'Results_raw': {'train_total': 969, 'train_loss': 484.783574, 'train_imp_ratio': 19.99232, 'train_avg_loss': 0.500293, 'train_acc': 0.830753}}
+2022-09-06 20:31:28,669 (client:259) INFO: {'Role': 'Client #4', 'Round': 7, 'Results_raw': {'train_total': 808, 'train_loss': 1296.820938, 'train_imp_ratio': 2.516729, 'train_avg_loss': 1.604976, 'train_acc': 0.82797}}
+2022-09-06 20:31:29,805 (client:259) INFO: {'Role': 'Client #13', 'Round': 7, 'Results_raw': {'train_mse': 0.014321, 'train_total': 1024, 'train_loss': 27.647149, 'train_imp_ratio': -226.290084, 'train_avg_loss': 0.026999}}
+2022-09-06 20:31:31,022 (client:259) INFO: {'Role': 'Client #9', 'Round': 7, 'Results_raw': {'train_mse': 0.07763, 'train_total': 1024, 'train_loss': 383.4722, 'train_imp_ratio': -31.1348, 'train_avg_loss': 0.374485}}
+2022-09-06 20:31:32,100 (client:259) INFO: {'Role': 'Client #5', 'Round': 7, 'Results_raw': {'train_total': 1004, 'train_loss': 1100.852293, 'train_imp_ratio': -12.446328, 'train_avg_loss': 1.096466, 'train_acc': 0.553785}}
+2022-09-06 20:31:32,100 (server:321) INFO: ----------- Starting a new training round (Round #8) -------------
+2022-09-06 20:31:33,246 (client:259) INFO: {'Role': 'Client #13', 'Round': 8, 'Results_raw': {'train_mse': 0.013306, 'train_total': 1024, 'train_loss': 26.220492, 'train_imp_ratio': -203.165105, 'train_avg_loss': 0.025606}}
+2022-09-06 20:31:34,421 (client:259) INFO: {'Role': 'Client #7', 'Round': 8, 'Results_raw': {'train_total': 1024, 'train_loss': 1110.517242, 'train_imp_ratio': -24.985841, 'train_avg_loss': 1.084489, 'train_acc': 0.62207}}
+2022-09-06 20:31:35,588 (client:259) INFO: {'Role': 'Client #11', 'Round': 8, 'Results_raw': {'train_mse': 1.121465, 'train_total': 1024, 'train_loss': 2253.53788, 'train_imp_ratio': -52.785918, 'train_avg_loss': 2.200721}}
+2022-09-06 20:31:36,785 (client:259) INFO: {'Role': 'Client #9', 'Round': 8, 'Results_raw': {'train_mse': 0.067049, 'train_total': 1024, 'train_loss': 493.685001, 'train_imp_ratio': -13.259875, 'train_avg_loss': 0.482114}}
+2022-09-06 20:31:37,933 (client:259) INFO: {'Role': 'Client #10', 'Round': 8, 'Results_raw': {'train_mse': 0.015184, 'train_total': 1024, 'train_loss': 28.343112, 'train_imp_ratio': -114.368314, 'train_avg_loss': 0.027679}}
+2022-09-06 20:31:38,981 (client:259) INFO: {'Role': 'Client #8', 'Round': 8, 'Results_raw': {'train_total': 969, 'train_loss': 462.001308, 'train_imp_ratio': 26.822244, 'train_avg_loss': 0.476782, 'train_acc': 0.845201}}
+2022-09-06 20:31:40,102 (client:259) INFO: {'Role': 'Client #5', 'Round': 8, 'Results_raw': {'train_total': 1004, 'train_loss': 1095.301585, 'train_imp_ratio': -5.418432, 'train_avg_loss': 1.090938, 'train_acc': 0.581673}}
+2022-09-06 20:31:41,262 (client:259) INFO: {'Role': 'Client #3', 'Round': 8, 'Results_raw': {'train_total': 1024, 'train_loss': 1008.403923, 'train_imp_ratio': -28.320077, 'train_avg_loss': 0.984769, 'train_acc': 0.543945}}
+2022-09-06 20:31:42,338 (client:259) INFO: {'Role': 'Client #2', 'Round': 8, 'Results_raw': {'train_total': 969, 'train_loss': 950.04972, 'train_imp_ratio': -26.497087, 'train_avg_loss': 0.980443, 'train_acc': 0.633643}}
+2022-09-06 20:31:43,526 (client:259) INFO: {'Role': 'Client #12', 'Round': 8, 'Results_raw': {'train_mse': 2.33348, 'train_total': 992, 'train_loss': 10035.459259, 'train_imp_ratio': -71.412276, 'train_avg_loss': 10.11639}}
+2022-09-06 20:31:44,632 (client:259) INFO: {'Role': 'Client #6', 'Round': 8, 'Results_raw': {'train_total': 1024, 'train_loss': 956.159145, 'train_imp_ratio': -1.17304, 'train_avg_loss': 0.933749, 'train_acc': 0.735352}}
+2022-09-06 20:31:45,804 (client:259) INFO: {'Role': 'Client #1', 'Round': 8, 'Results_raw': {'train_total': 1024, 'train_loss': 1891.645416, 'train_imp_ratio': -14.39363, 'train_avg_loss': 1.84731, 'train_acc': 0.698242}}
+2022-09-06 20:31:46,776 (client:259) INFO: {'Role': 'Client #4', 'Round': 8, 'Results_raw': {'train_total': 808, 'train_loss': 1398.126512, 'train_imp_ratio': 1.114092, 'train_avg_loss': 1.730355, 'train_acc': 0.825495}}
+2022-09-06 20:31:46,792 (server:321) INFO: ----------- Starting a new training round (Round #9) -------------
+2022-09-06 20:31:47,972 (client:259) INFO: {'Role': 'Client #9', 'Round': 9, 'Results_raw': {'train_mse': 0.066294, 'train_total': 1024, 'train_loss': 418.975649, 'train_imp_ratio': -11.984798, 'train_avg_loss': 0.409156}}
+2022-09-06 20:31:49,062 (client:259) INFO: {'Role': 'Client #2', 'Round': 9, 'Results_raw': {'train_total': 969, 'train_loss': 941.156429, 'train_imp_ratio': -24.002778, 'train_avg_loss': 0.971266, 'train_acc': 0.640867}}
+2022-09-06 20:31:50,130 (client:259) INFO: {'Role': 'Client #5', 'Round': 9, 'Results_raw': {'train_total': 1004, 'train_loss': 1090.024107, 'train_imp_ratio': -9.434372, 'train_avg_loss': 1.085681, 'train_acc': 0.565737}}
+2022-09-06 20:31:51,323 (client:259) INFO: {'Role': 'Client #11', 'Round': 9, 'Results_raw': {'train_mse': 1.225803, 'train_total': 1024, 'train_loss': 3361.201614, 'train_imp_ratio': -67.000682, 'train_avg_loss': 3.282423}}
+2022-09-06 20:31:52,492 (client:259) INFO: {'Role': 'Client #7', 'Round': 9, 'Results_raw': {'train_total': 1024, 'train_loss': 1119.426437, 'train_imp_ratio': -26.277685, 'train_avg_loss': 1.09319, 'train_acc': 0.618164}}
+2022-09-06 20:31:53,458 (client:259) INFO: {'Role': 'Client #4', 'Round': 9, 'Results_raw': {'train_total': 808, 'train_loss': 1548.896569, 'train_imp_ratio': 8.828596, 'train_avg_loss': 1.916951, 'train_acc': 0.839109}}
+2022-09-06 20:31:54,603 (client:259) INFO: {'Role': 'Client #12', 'Round': 9, 'Results_raw': {'train_mse': 2.043798, 'train_total': 992, 'train_loss': 9513.389801, 'train_imp_ratio': -50.132883, 'train_avg_loss': 9.590111}}
+2022-09-06 20:31:55,756 (client:259) INFO: {'Role': 'Client #3', 'Round': 9, 'Results_raw': {'train_total': 1024, 'train_loss': 1008.529972, 'train_imp_ratio': -23.099346, 'train_avg_loss': 0.984893, 'train_acc': 0.5625}}
+2022-09-06 20:31:56,909 (client:259) INFO: {'Role': 'Client #13', 'Round': 9, 'Results_raw': {'train_mse': 0.012658, 'train_total': 1024, 'train_loss': 24.05709, 'train_imp_ratio': -188.405371, 'train_avg_loss': 0.023493}}
+2022-09-06 20:31:58,030 (client:259) INFO: {'Role': 'Client #10', 'Round': 9, 'Results_raw': {'train_mse': 0.01397, 'train_total': 1024, 'train_loss': 26.331801, 'train_imp_ratio': -97.231203, 'train_avg_loss': 0.025715}}
+2022-09-06 20:31:59,176 (client:259) INFO: {'Role': 'Client #6', 'Round': 9, 'Results_raw': {'train_total': 1024, 'train_loss': 930.019478, 'train_imp_ratio': 0.693621, 'train_avg_loss': 0.908222, 'train_acc': 0.740234}}
+2022-09-06 20:32:00,238 (client:259) INFO: {'Role': 'Client #8', 'Round': 9, 'Results_raw': {'train_total': 969, 'train_loss': 494.799431, 'train_imp_ratio': 19.99232, 'train_avg_loss': 0.510629, 'train_acc': 0.830753}}
+2022-09-06 20:32:01,390 (client:259) INFO: {'Role': 'Client #1', 'Round': 9, 'Results_raw': {'train_total': 1024, 'train_loss': 1865.96933, 'train_imp_ratio': -8.840541, 'train_avg_loss': 1.822236, 'train_acc': 0.712891}}
+2022-09-06 20:32:01,390 (server:314) INFO: Server #0: Starting evaluation at the end of round 9.
+2022-09-06 20:32:01,390 (server:321) INFO: ----------- Starting a new training round (Round #10) -------------
+2022-09-06 20:33:45,978 (client:259) INFO: {'Role': 'Client #8', 'Round': 10, 'Results_raw': {'train_total': 969, 'train_loss': 489.307259, 'train_imp_ratio': 23.407282, 'train_avg_loss': 0.504961, 'train_acc': 0.837977}}
+2022-09-06 20:33:47,121 (client:259) INFO: {'Role': 'Client #1', 'Round': 10, 'Results_raw': {'train_total': 1024, 'train_loss': 2144.028259, 'train_imp_ratio': -4.027864, 'train_avg_loss': 2.093778, 'train_acc': 0.725586}}
+2022-09-06 20:33:48,284 (client:259) INFO: {'Role': 'Client #7', 'Round': 10, 'Results_raw': {'train_total': 1024, 'train_loss': 1156.404404, 'train_imp_ratio': -25.631763, 'train_avg_loss': 1.129301, 'train_acc': 0.620117}}
+2022-09-06 20:33:49,392 (client:259) INFO: {'Role': 'Client #6', 'Round': 10, 'Results_raw': {'train_total': 1024, 'train_loss': 908.469864, 'train_imp_ratio': -4.159698, 'train_avg_loss': 0.887178, 'train_acc': 0.727539}}
+2022-09-06 20:33:50,598 (client:259) INFO: {'Role': 'Client #9', 'Round': 10, 'Results_raw': {'train_mse': 0.063997, 'train_total': 1024, 'train_loss': 431.924501, 'train_imp_ratio': -8.104565, 'train_avg_loss': 0.421801}}
+2022-09-06 20:33:51,694 (client:259) INFO: {'Role': 'Client #10', 'Round': 10, 'Results_raw': {'train_mse': 0.014293, 'train_total': 1024, 'train_loss': 27.944768, 'train_imp_ratio': -101.791134, 'train_avg_loss': 0.02729}}
+2022-09-06 20:33:52,762 (client:259) INFO: {'Role': 'Client #2', 'Round': 10, 'Results_raw': {'train_total': 969, 'train_loss': 940.404325, 'train_imp_ratio': -23.290119, 'train_avg_loss': 0.970489, 'train_acc': 0.642931}}
+2022-09-06 20:33:53,827 (client:259) INFO: {'Role': 'Client #5', 'Round': 10, 'Results_raw': {'train_total': 1004, 'train_loss': 1086.478034, 'train_imp_ratio': -2.155481, 'train_avg_loss': 1.082149, 'train_acc': 0.594622}}
+2022-09-06 20:33:55,035 (client:259) INFO: {'Role': 'Client #11', 'Round': 10, 'Results_raw': {'train_mse': 1.261626, 'train_total': 1024, 'train_loss': 3136.888092, 'train_imp_ratio': -71.881141, 'train_avg_loss': 3.063367}}
+2022-09-06 20:33:56,178 (client:259) INFO: {'Role': 'Client #13', 'Round': 10, 'Results_raw': {'train_mse': 0.01257, 'train_total': 1024, 'train_loss': 22.574951, 'train_imp_ratio': -186.396906, 'train_avg_loss': 0.022046}}
+2022-09-06 20:33:57,330 (client:259) INFO: {'Role': 'Client #12', 'Round': 10, 'Results_raw': {'train_mse': 1.643237, 'train_total': 992, 'train_loss': 10489.638947, 'train_imp_ratio': -20.708541, 'train_avg_loss': 10.574233}}
+2022-09-06 20:33:58,311 (client:259) INFO: {'Role': 'Client #4', 'Round': 10, 'Results_raw': {'train_total': 808, 'train_loss': 1663.325936, 'train_imp_ratio': 13.737825, 'train_avg_loss': 2.058572, 'train_acc': 0.847772}}
+2022-09-06 20:33:59,480 (client:259) INFO: {'Role': 'Client #3', 'Round': 10, 'Results_raw': {'train_total': 1024, 'train_loss': 1011.275856, 'train_imp_ratio': -26.671425, 'train_avg_loss': 0.987574, 'train_acc': 0.549805}}
+2022-09-06 20:33:59,480 (server:487) INFO: {'Role': 'Server #', 'Round': 10, 'Results_avg': {'test_total': 8350.846154, 'test_loss': 10402.959183, 'test_imp_ratio': -1105.893422, 'test_avg_loss': 1.853641, 'test_acc': 0.587468, 'val_total': 8350.461538, 'val_loss': 684.02617, 'val_imp_ratio': -44.882098, 'val_avg_loss': 0.542171, 'val_acc': 0.69328, 'test_mse': 4.509838, 'val_mse': 0.846025}}
+2022-09-06 20:33:59,495 (server:321) INFO: ----------- Starting a new training round (Round #11) -------------
+2022-09-06 20:34:00,635 (client:259) INFO: {'Role': 'Client #13', 'Round': 11, 'Results_raw': {'train_mse': 0.012047, 'train_total': 1024, 'train_loss': 22.647071, 'train_imp_ratio': -174.475213, 'train_avg_loss': 0.022116}}
+2022-09-06 20:34:01,772 (client:259) INFO: {'Role': 'Client #6', 'Round': 11, 'Results_raw': {'train_total': 1024, 'train_loss': 897.560936, 'train_imp_ratio': -3.786366, 'train_avg_loss': 0.876524, 'train_acc': 0.728516}}
+2022-09-06 20:34:02,894 (client:259) INFO: {'Role': 'Client #10', 'Round': 11, 'Results_raw': {'train_mse': 0.013137, 'train_total': 1024, 'train_loss': 26.798498, 'train_imp_ratio': -85.477775, 'train_avg_loss': 0.02617}}
+2022-09-06 20:34:04,041 (client:259) INFO: {'Role': 'Client #12', 'Round': 11, 'Results_raw': {'train_mse': 1.889873, 'train_total': 992, 'train_loss': 10394.320862, 'train_imp_ratio': -38.825888, 'train_avg_loss': 10.478146}}
+2022-09-06 20:34:05,193 (client:259) INFO: {'Role': 'Client #1', 'Round': 11, 'Results_raw': {'train_total': 1024, 'train_loss': 2049.61731, 'train_imp_ratio': -3.287452, 'train_avg_loss': 2.001579, 'train_acc': 0.727539}}
+2022-09-06 20:34:06,256 (client:259) INFO: {'Role': 'Client #8', 'Round': 11, 'Results_raw': {'train_total': 969, 'train_loss': 521.298779, 'train_imp_ratio': 17.06521, 'train_avg_loss': 0.537976, 'train_acc': 0.824561}}
+2022-09-06 20:34:07,424 (client:259) INFO: {'Role': 'Client #3', 'Round': 11, 'Results_raw': {'train_total': 1024, 'train_loss': 1010.593815, 'train_imp_ratio': -24.473223, 'train_avg_loss': 0.986908, 'train_acc': 0.557617}}
+2022-09-06 20:34:08,389 (client:259) INFO: {'Role': 'Client #4', 'Round': 11, 'Results_raw': {'train_total': 808, 'train_loss': 1816.673145, 'train_imp_ratio': 16.543099, 'train_avg_loss': 2.248358, 'train_acc': 0.852723}}
+2022-09-06 20:34:09,598 (client:259) INFO: {'Role': 'Client #9', 'Round': 11, 'Results_raw': {'train_mse': 0.066646, 'train_total': 1024, 'train_loss': 421.618347, 'train_imp_ratio': -12.579256, 'train_avg_loss': 0.411737}}
+2022-09-06 20:34:10,766 (client:259) INFO: {'Role': 'Client #7', 'Round': 11, 'Results_raw': {'train_total': 1024, 'train_loss': 1170.695137, 'train_imp_ratio': -16.58886, 'train_avg_loss': 1.143257, 'train_acc': 0.647461}}
+2022-09-06 20:34:11,930 (client:259) INFO: {'Role': 'Client #11', 'Round': 11, 'Results_raw': {'train_mse': 1.226192, 'train_total': 1024, 'train_loss': 3235.303284, 'train_imp_ratio': -67.053659, 'train_avg_loss': 3.159476}}
+2022-09-06 20:34:13,006 (client:259) INFO: {'Role': 'Client #5', 'Round': 11, 'Results_raw': {'train_total': 1004, 'train_loss': 1086.798199, 'train_imp_ratio': -5.167436, 'train_avg_loss': 1.082468, 'train_acc': 0.582669}}
+2022-09-06 20:34:14,112 (client:259) INFO: {'Role': 'Client #2', 'Round': 11, 'Results_raw': {'train_total': 969, 'train_loss': 937.606902, 'train_imp_ratio': -21.8648, 'train_avg_loss': 0.967603, 'train_acc': 0.647059}}
+2022-09-06 20:34:14,112 (server:321) INFO: ----------- Starting a new training round (Round #12) -------------
+2022-09-06 20:34:15,161 (client:259) INFO: {'Role': 'Client #8', 'Round': 12, 'Results_raw': {'train_total': 969, 'train_loss': 482.130734, 'train_imp_ratio': 25.846541, 'train_avg_loss': 0.497555, 'train_acc': 0.843137}}
+2022-09-06 20:34:16,282 (client:259) INFO: {'Role': 'Client #10', 'Round': 12, 'Results_raw': {'train_mse': 0.01286, 'train_total': 1024, 'train_loss': 27.416362, 'train_imp_ratio': -81.56246, 'train_avg_loss': 0.026774}}
+2022-09-06 20:34:17,450 (client:259) INFO: {'Role': 'Client #3', 'Round': 12, 'Results_raw': {'train_total': 1024, 'train_loss': 1010.928261, 'train_imp_ratio': -22.27502, 'train_avg_loss': 0.987235, 'train_acc': 0.56543}}
+2022-09-06 20:34:18,525 (client:259) INFO: {'Role': 'Client #2', 'Round': 12, 'Results_raw': {'train_total': 969, 'train_loss': 941.7966, 'train_imp_ratio': -20.43948, 'train_avg_loss': 0.971926, 'train_acc': 0.651187}}
+2022-09-06 20:34:19,667 (client:259) INFO: {'Role': 'Client #13', 'Round': 12, 'Results_raw': {'train_mse': 0.011629, 'train_total': 1024, 'train_loss': 20.992054, 'train_imp_ratio': -164.953846, 'train_avg_loss': 0.0205}}
+2022-09-06 20:34:20,826 (client:259) INFO: {'Role': 'Client #6', 'Round': 12, 'Results_raw': {'train_total': 1024, 'train_loss': 877.020729, 'train_imp_ratio': -3.039701, 'train_avg_loss': 0.856466, 'train_acc': 0.730469}}
+2022-09-06 20:34:21,994 (client:259) INFO: {'Role': 'Client #1', 'Round': 12, 'Results_raw': {'train_total': 1024, 'train_loss': 2461.138527, 'train_imp_ratio': -3.287452, 'train_avg_loss': 2.403456, 'train_acc': 0.727539}}
+2022-09-06 20:34:23,101 (client:259) INFO: {'Role': 'Client #5', 'Round': 12, 'Results_raw': {'train_total': 1004, 'train_loss': 1085.770525, 'train_imp_ratio': -7.175406, 'train_avg_loss': 1.081445, 'train_acc': 0.574701}}
+2022-09-06 20:34:24,290 (client:259) INFO: {'Role': 'Client #9', 'Round': 12, 'Results_raw': {'train_mse': 0.064051, 'train_total': 1024, 'train_loss': 411.636263, 'train_imp_ratio': -8.196101, 'train_avg_loss': 0.401989}}
+2022-09-06 20:34:25,442 (client:259) INFO: {'Role': 'Client #12', 'Round': 12, 'Results_raw': {'train_mse': 1.749178, 'train_total': 992, 'train_loss': 11969.907654, 'train_imp_ratio': -28.490711, 'train_avg_loss': 12.066439}}
+2022-09-06 20:34:26,627 (client:259) INFO: {'Role': 'Client #11', 'Round': 12, 'Results_raw': {'train_mse': 1.228218, 'train_total': 1024, 'train_loss': 3978.65361, 'train_imp_ratio': -67.329623, 'train_avg_loss': 3.885404}}
+2022-09-06 20:34:27,583 (client:259) INFO: {'Role': 'Client #4', 'Round': 12, 'Results_raw': {'train_total': 808, 'train_loss': 2181.759251, 'train_imp_ratio': 24.257602, 'train_avg_loss': 2.700197, 'train_acc': 0.866337}}
+2022-09-06 20:34:28,753 (client:259) INFO: {'Role': 'Client #7', 'Round': 12, 'Results_raw': {'train_total': 1024, 'train_loss': 1227.185867, 'train_imp_ratio': -14.328134, 'train_avg_loss': 1.198424, 'train_acc': 0.654297}}
+2022-09-06 20:34:28,753 (server:321) INFO: ----------- Starting a new training round (Round #13) -------------
+2022-09-06 20:34:29,824 (client:259) INFO: {'Role': 'Client #5', 'Round': 13, 'Results_raw': {'train_total': 1004, 'train_loss': 1083.938979, 'train_imp_ratio': -3.661458, 'train_avg_loss': 1.07962, 'train_acc': 0.588645}}
+2022-09-06 20:34:30,901 (client:259) INFO: {'Role': 'Client #2', 'Round': 13, 'Results_raw': {'train_total': 969, 'train_loss': 959.887508, 'train_imp_ratio': -21.15214, 'train_avg_loss': 0.990596, 'train_acc': 0.649123}}
+2022-09-06 20:34:31,991 (client:259) INFO: {'Role': 'Client #8', 'Round': 13, 'Results_raw': {'train_total': 969, 'train_loss': 487.845566, 'train_imp_ratio': 22.431579, 'train_avg_loss': 0.503453, 'train_acc': 0.835913}}
+2022-09-06 20:34:33,153 (client:259) INFO: {'Role': 'Client #7', 'Round': 13, 'Results_raw': {'train_total': 1024, 'train_loss': 1247.16835, 'train_imp_ratio': -14.651095, 'train_avg_loss': 1.217938, 'train_acc': 0.65332}}
+2022-09-06 20:34:34,281 (client:259) INFO: {'Role': 'Client #6', 'Round': 13, 'Results_raw': {'train_total': 1024, 'train_loss': 863.838966, 'train_imp_ratio': -4.159698, 'train_avg_loss': 0.843593, 'train_acc': 0.727539}}
+2022-09-06 20:34:35,437 (client:259) INFO: {'Role': 'Client #13', 'Round': 13, 'Results_raw': {'train_mse': 0.011012, 'train_total': 1024, 'train_loss': 20.41094, 'train_imp_ratio': -150.891787, 'train_avg_loss': 0.019933}}
+2022-09-06 20:34:36,605 (client:259) INFO: {'Role': 'Client #11', 'Round': 13, 'Results_raw': {'train_mse': 1.240621, 'train_total': 1024, 'train_loss': 3805.087654, 'train_imp_ratio': -69.019446, 'train_avg_loss': 3.715906}}
+2022-09-06 20:34:37,585 (client:259) INFO: {'Role': 'Client #4', 'Round': 13, 'Results_raw': {'train_total': 808, 'train_loss': 2279.693785, 'train_imp_ratio': 24.958921, 'train_avg_loss': 2.821403, 'train_acc': 0.867574}}
+2022-09-06 20:34:38,684 (client:259) INFO: {'Role': 'Client #10', 'Round': 13, 'Results_raw': {'train_mse': 0.012604, 'train_total': 1024, 'train_loss': 26.249313, 'train_imp_ratio': -77.940479, 'train_avg_loss': 0.025634}}
+2022-09-06 20:34:39,874 (client:259) INFO: {'Role': 'Client #9', 'Round': 13, 'Results_raw': {'train_mse': 0.072613, 'train_total': 1024, 'train_loss': 379.858402, 'train_imp_ratio': -22.658891, 'train_avg_loss': 0.370955}}
+2022-09-06 20:34:41,011 (client:259) INFO: {'Role': 'Client #1', 'Round': 13, 'Results_raw': {'train_total': 1024, 'train_loss': 2468.678368, 'train_imp_ratio': 2.265637, 'train_avg_loss': 2.410819, 'train_acc': 0.742188}}
+2022-09-06 20:34:42,145 (client:259) INFO: {'Role': 'Client #12', 'Round': 13, 'Results_raw': {'train_mse': 1.538948, 'train_total': 992, 'train_loss': 12573.055725, 'train_imp_ratio': -13.047742, 'train_avg_loss': 12.674451}}
+2022-09-06 20:34:43,313 (client:259) INFO: {'Role': 'Client #3', 'Round': 13, 'Results_raw': {'train_total': 1024, 'train_loss': 1004.844086, 'train_imp_ratio': -20.076818, 'train_avg_loss': 0.981293, 'train_acc': 0.573242}}
+2022-09-06 20:34:43,313 (server:321) INFO: ----------- Starting a new training round (Round #14) -------------
+2022-09-06 20:34:44,512 (client:259) INFO: {'Role': 'Client #9', 'Round': 14, 'Results_raw': {'train_mse': 0.068792, 'train_total': 1024, 'train_loss': 410.495224, 'train_imp_ratio': -16.205434, 'train_avg_loss': 0.400874}}
+2022-09-06 20:34:45,681 (client:259) INFO: {'Role': 'Client #3', 'Round': 14, 'Results_raw': {'train_total': 1024, 'train_loss': 1013.893139, 'train_imp_ratio': -31.067831, 'train_avg_loss': 0.99013, 'train_acc': 0.53418}}
+2022-09-06 20:34:46,849 (client:259) INFO: {'Role': 'Client #11', 'Round': 14, 'Results_raw': {'train_mse': 1.086851, 'train_total': 1024, 'train_loss': 3525.602867, 'train_imp_ratio': -48.070141, 'train_avg_loss': 3.442972}}
+2022-09-06 20:34:47,987 (client:259) INFO: {'Role': 'Client #12', 'Round': 14, 'Results_raw': {'train_mse': 1.8549, 'train_total': 992, 'train_loss': 12819.026276, 'train_imp_ratio': -36.256873, 'train_avg_loss': 12.922406}}
+2022-09-06 20:34:49,143 (client:259) INFO: {'Role': 'Client #10', 'Round': 14, 'Results_raw': {'train_mse': 0.013066, 'train_total': 1024, 'train_loss': 25.868453, 'train_imp_ratio': -84.462893, 'train_avg_loss': 0.025262}}
+2022-09-06 20:34:50,202 (client:259) INFO: {'Role': 'Client #8', 'Round': 14, 'Results_raw': {'train_total': 969, 'train_loss': 477.94154, 'train_imp_ratio': 24.382985, 'train_avg_loss': 0.493232, 'train_acc': 0.840041}}
+2022-09-06 20:34:51,261 (client:259) INFO: {'Role': 'Client #2', 'Round': 14, 'Results_raw': {'train_total': 969, 'train_loss': 984.518982, 'train_imp_ratio': -19.014161, 'train_avg_loss': 1.016015, 'train_acc': 0.655315}}
+2022-09-06 20:34:52,382 (client:259) INFO: {'Role': 'Client #6', 'Round': 14, 'Results_raw': {'train_total': 1024, 'train_loss': 844.643543, 'train_imp_ratio': -2.293037, 'train_avg_loss': 0.824847, 'train_acc': 0.732422}}
+2022-09-06 20:34:53,576 (client:259) INFO: {'Role': 'Client #7', 'Round': 14, 'Results_raw': {'train_total': 1024, 'train_loss': 1265.503212, 'train_imp_ratio': -17.880703, 'train_avg_loss': 1.235843, 'train_acc': 0.643555}}
+2022-09-06 20:34:54,599 (client:259) INFO: {'Role': 'Client #4', 'Round': 14, 'Results_raw': {'train_total': 808, 'train_loss': 2382.691469, 'train_imp_ratio': 31.972106, 'train_avg_loss': 2.948876, 'train_acc': 0.87995}}
+2022-09-06 20:34:55,675 (client:259) INFO: {'Role': 'Client #5', 'Round': 14, 'Results_raw': {'train_total': 1004, 'train_loss': 1076.790966, 'train_imp_ratio': 0.103486, 'train_avg_loss': 1.072501, 'train_acc': 0.603586}}
+2022-09-06 20:34:56,795 (client:259) INFO: {'Role': 'Client #1', 'Round': 14, 'Results_raw': {'train_total': 1024, 'train_loss': 2672.386444, 'train_imp_ratio': -5.508688, 'train_avg_loss': 2.609752, 'train_acc': 0.72168}}
+2022-09-06 20:34:57,933 (client:259) INFO: {'Role': 'Client #13', 'Round': 14, 'Results_raw': {'train_mse': 0.010938, 'train_total': 1024, 'train_loss': 19.982209, 'train_imp_ratio': -149.205858, 'train_avg_loss': 0.019514}}
+2022-09-06 20:34:57,933 (server:314) INFO: Server #0: Starting evaluation at the end of round 14.
+2022-09-06 20:34:57,933 (server:321) INFO: ----------- Starting a new training round (Round #15) -------------
+2022-09-06 20:36:28,203 (client:259) INFO: {'Role': 'Client #5', 'Round': 15, 'Results_raw': {'train_total': 1004, 'train_loss': 1074.723397, 'train_imp_ratio': -4.163451, 'train_avg_loss': 1.070442, 'train_acc': 0.586653}}
+2022-09-06 20:36:29,312 (client:259) INFO: {'Role': 'Client #3', 'Round': 15, 'Results_raw': {'train_total': 1024, 'train_loss': 1009.954453, 'train_imp_ratio': -24.747998, 'train_avg_loss': 0.986284, 'train_acc': 0.556641}}
+2022-09-06 20:36:30,436 (client:259) INFO: {'Role': 'Client #9', 'Round': 15, 'Results_raw': {'train_mse': 0.059794, 'train_total': 1024, 'train_loss': 463.893103, 'train_imp_ratio': -1.004665, 'train_avg_loss': 0.453021}}
+2022-09-06 20:36:31,754 (client:259) INFO: {'Role': 'Client #11', 'Round': 15, 'Results_raw': {'train_mse': 1.224169, 'train_total': 1024, 'train_loss': 2397.16198, 'train_imp_ratio': -66.777988, 'train_avg_loss': 2.340978}}
+2022-09-06 20:36:32,817 (client:259) INFO: {'Role': 'Client #2', 'Round': 15, 'Results_raw': {'train_total': 969, 'train_loss': 990.496376, 'train_imp_ratio': -17.588842, 'train_avg_loss': 1.022184, 'train_acc': 0.659443}}
+2022-09-06 20:36:37,914 (client:259) INFO: {'Role': 'Client #4', 'Round': 15, 'Results_raw': {'train_total': 808, 'train_loss': 2681.19062, 'train_imp_ratio': 17.244418, 'train_avg_loss': 3.318305, 'train_acc': 0.85396}}
+2022-09-06 20:36:38,995 (client:259) INFO: {'Role': 'Client #8', 'Round': 15, 'Results_raw': {'train_total': 969, 'train_loss': 514.36638, 'train_imp_ratio': 14.1381, 'train_avg_loss': 0.530822, 'train_acc': 0.818369}}
+2022-09-06 20:36:40,129 (client:259) INFO: {'Role': 'Client #13', 'Round': 15, 'Results_raw': {'train_mse': 0.010374, 'train_total': 1024, 'train_loss': 19.614346, 'train_imp_ratio': -136.372343, 'train_avg_loss': 0.019155}}
+2022-09-06 20:36:41,293 (client:259) INFO: {'Role': 'Client #7', 'Round': 15, 'Results_raw': {'train_total': 1024, 'train_loss': 1286.789452, 'train_imp_ratio': -9.483722, 'train_avg_loss': 1.25663, 'train_acc': 0.668945}}
+2022-09-06 20:36:42,431 (client:259) INFO: {'Role': 'Client #12', 'Round': 15, 'Results_raw': {'train_mse': 1.698389, 'train_total': 992, 'train_loss': 11758.895416, 'train_imp_ratio': -24.759933, 'train_avg_loss': 11.853725}}
+2022-09-06 20:36:43,581 (client:259) INFO: {'Role': 'Client #1', 'Round': 15, 'Results_raw': {'train_total': 1024, 'train_loss': 2807.738678, 'train_imp_ratio': 5.967696, 'train_avg_loss': 2.741932, 'train_acc': 0.751953}}
+2022-09-06 20:36:44,663 (client:259) INFO: {'Role': 'Client #10', 'Round': 15, 'Results_raw': {'train_mse': 0.012518, 'train_total': 1024, 'train_loss': 25.751751, 'train_imp_ratio': -76.737491, 'train_avg_loss': 0.025148}}
+2022-09-06 20:36:45,792 (client:259) INFO: {'Role': 'Client #6', 'Round': 15, 'Results_raw': {'train_total': 1024, 'train_loss': 832.752766, 'train_imp_ratio': -2.293037, 'train_avg_loss': 0.813235, 'train_acc': 0.732422}}
+2022-09-06 20:36:45,792 (server:487) INFO: {'Role': 'Server #', 'Round': 15, 'Results_avg': {'test_total': 8350.846154, 'test_loss': 14370.095308, 'test_imp_ratio': -1309.889497, 'test_avg_loss': 1.859759, 'test_acc': 0.483464, 'val_total': 8350.461538, 'val_loss': 1713.064656, 'val_imp_ratio': -90.047053, 'val_avg_loss': 0.524565, 'val_acc': 0.679535, 'test_mse': 4.380113, 'val_mse': 0.808695}}
+2022-09-06 20:36:45,792 (server:321) INFO: ----------- Starting a new training round (Round #16) -------------
+2022-09-06 20:36:46,961 (client:259) INFO: {'Role': 'Client #3', 'Round': 16, 'Results_raw': {'train_total': 1024, 'train_loss': 1012.768608, 'train_imp_ratio': -24.473223, 'train_avg_loss': 0.989032, 'train_acc': 0.557617}}
+2022-09-06 20:36:48,019 (client:259) INFO: {'Role': 'Client #5', 'Round': 16, 'Results_raw': {'train_total': 1004, 'train_loss': 1068.083501, 'train_imp_ratio': -1.904484, 'train_avg_loss': 1.063828, 'train_acc': 0.595618}}
+2022-09-06 20:36:49,098 (client:259) INFO: {'Role': 'Client #2', 'Round': 16, 'Results_raw': {'train_total': 969, 'train_loss': 995.558384, 'train_imp_ratio': -14.025543, 'train_avg_loss': 1.027408, 'train_acc': 0.669763}}
+2022-09-06 20:36:50,048 (client:259) INFO: {'Role': 'Client #4', 'Round': 16, 'Results_raw': {'train_total': 808, 'train_loss': 2499.683786, 'train_imp_ratio': 27.764195, 'train_avg_loss': 3.093668, 'train_acc': 0.872525}}
+2022-09-06 20:36:51,209 (client:259) INFO: {'Role': 'Client #11', 'Round': 16, 'Results_raw': {'train_mse': 1.16101, 'train_total': 1024, 'train_loss': 3498.573318, 'train_imp_ratio': -58.173448, 'train_avg_loss': 3.416576}}
+2022-09-06 20:36:52,362 (client:259) INFO: {'Role': 'Client #1', 'Round': 16, 'Results_raw': {'train_total': 1024, 'train_loss': 2741.600586, 'train_imp_ratio': 4.486872, 'train_avg_loss': 2.677344, 'train_acc': 0.748047}}
+2022-09-06 20:36:53,586 (client:259) INFO: {'Role': 'Client #9', 'Round': 16, 'Results_raw': {'train_mse': 0.060995, 'train_total': 1024, 'train_loss': 410.055504, 'train_imp_ratio': -3.034227, 'train_avg_loss': 0.400445}}
+2022-09-06 20:36:54,695 (client:259) INFO: {'Role': 'Client #8', 'Round': 16, 'Results_raw': {'train_total': 969, 'train_loss': 514.349251, 'train_imp_ratio': 22.431579, 'train_avg_loss': 0.530804, 'train_acc': 0.835913}}
+2022-09-06 20:36:55,833 (client:259) INFO: {'Role': 'Client #6', 'Round': 16, 'Results_raw': {'train_total': 1024, 'train_loss': 827.704247, 'train_imp_ratio': -1.546372, 'train_avg_loss': 0.808305, 'train_acc': 0.734375}}
+2022-09-06 20:36:57,001 (client:259) INFO: {'Role': 'Client #7', 'Round': 16, 'Results_raw': {'train_total': 1024, 'train_loss': 1324.535919, 'train_imp_ratio': -13.036291, 'train_avg_loss': 1.293492, 'train_acc': 0.658203}}
+2022-09-06 20:36:58,092 (client:259) INFO: {'Role': 'Client #10', 'Round': 16, 'Results_raw': {'train_mse': 0.012034, 'train_total': 1024, 'train_loss': 25.241241, 'train_imp_ratio': -69.899259, 'train_avg_loss': 0.02465}}
+2022-09-06 20:36:59,238 (client:259) INFO: {'Role': 'Client #13', 'Round': 16, 'Results_raw': {'train_mse': 0.01093, 'train_total': 1024, 'train_loss': 19.469255, 'train_imp_ratio': -149.030861, 'train_avg_loss': 0.019013}}
+2022-09-06 20:37:00,376 (client:259) INFO: {'Role': 'Client #12', 'Round': 16, 'Results_raw': {'train_mse': 1.549137, 'train_total': 992, 'train_loss': 12076.153198, 'train_imp_ratio': -13.796155, 'train_avg_loss': 12.173542}}
+2022-09-06 20:37:00,376 (server:321) INFO: ----------- Starting a new training round (Round #17) -------------
+2022-09-06 20:37:01,551 (client:259) INFO: {'Role': 'Client #3', 'Round': 17, 'Results_raw': {'train_total': 1024, 'train_loss': 1013.396801, 'train_imp_ratio': -27.495751, 'train_avg_loss': 0.989645, 'train_acc': 0.546875}}
+2022-09-06 20:37:02,547 (client:259) INFO: {'Role': 'Client #4', 'Round': 17, 'Results_raw': {'train_total': 808, 'train_loss': 2818.635482, 'train_imp_ratio': 39.686609, 'train_avg_loss': 3.48841, 'train_acc': 0.893564}}
+2022-09-06 20:37:03,670 (client:259) INFO: {'Role': 'Client #6', 'Round': 17, 'Results_raw': {'train_total': 1024, 'train_loss': 815.639248, 'train_imp_ratio': -3.413033, 'train_avg_loss': 0.796523, 'train_acc': 0.729492}}
+2022-09-06 20:37:04,822 (client:259) INFO: {'Role': 'Client #13', 'Round': 17, 'Results_raw': {'train_mse': 0.010435, 'train_total': 1024, 'train_loss': 19.136316, 'train_imp_ratio': -137.762897, 'train_avg_loss': 0.018688}}
+2022-09-06 20:37:05,955 (client:259) INFO: {'Role': 'Client #1', 'Round': 17, 'Results_raw': {'train_total': 1024, 'train_loss': 2579.244499, 'train_imp_ratio': 0.414607, 'train_avg_loss': 2.518793, 'train_acc': 0.737305}}
+2022-09-06 20:37:07,028 (client:259) INFO: {'Role': 'Client #5', 'Round': 17, 'Results_raw': {'train_total': 1004, 'train_loss': 1069.878999, 'train_imp_ratio': -0.398507, 'train_avg_loss': 1.065617, 'train_acc': 0.601594}}
+2022-09-06 20:37:08,206 (client:259) INFO: {'Role': 'Client #11', 'Round': 17, 'Results_raw': {'train_mse': 1.236764, 'train_total': 1024, 'train_loss': 3337.031464, 'train_imp_ratio': -68.493894, 'train_avg_loss': 3.25882}}
+2022-09-06 20:37:09,264 (client:259) INFO: {'Role': 'Client #8', 'Round': 17, 'Results_raw': {'train_total': 969, 'train_loss': 510.724305, 'train_imp_ratio': 21.943727, 'train_avg_loss': 0.527063, 'train_acc': 0.834881}}
+2022-09-06 20:37:10,339 (client:259) INFO: {'Role': 'Client #2', 'Round': 17, 'Results_raw': {'train_total': 969, 'train_loss': 1016.989062, 'train_imp_ratio': -16.163522, 'train_avg_loss': 1.049524, 'train_acc': 0.663571}}
+2022-09-06 20:37:11,445 (client:259) INFO: {'Role': 'Client #10', 'Round': 17, 'Results_raw': {'train_mse': 0.011841, 'train_total': 1024, 'train_loss': 24.88076, 'train_imp_ratio': -67.168142, 'train_avg_loss': 0.024298}}
+2022-09-06 20:37:12,585 (client:259) INFO: {'Role': 'Client #12', 'Round': 17, 'Results_raw': {'train_mse': 1.50319, 'train_total': 992, 'train_loss': 12498.053253, 'train_imp_ratio': -10.421045, 'train_avg_loss': 12.598844}}
+2022-09-06 20:37:13,794 (client:259) INFO: {'Role': 'Client #7', 'Round': 17, 'Results_raw': {'train_total': 1024, 'train_loss': 1372.424751, 'train_imp_ratio': -14.005173, 'train_avg_loss': 1.340259, 'train_acc': 0.655273}}
+2022-09-06 20:37:15,064 (client:259) INFO: {'Role': 'Client #9', 'Round': 17, 'Results_raw': {'train_mse': 0.0654, 'train_total': 1024, 'train_loss': 511.103176, 'train_imp_ratio': -10.474242, 'train_avg_loss': 0.499124}}
+2022-09-06 20:37:15,080 (server:321) INFO: ----------- Starting a new training round (Round #18) -------------
+2022-09-06 20:37:16,260 (client:259) INFO: {'Role': 'Client #2', 'Round': 18, 'Results_raw': {'train_total': 969, 'train_loss': 1029.973013, 'train_imp_ratio': -10.818575, 'train_avg_loss': 1.062924, 'train_acc': 0.679051}}
+2022-09-06 20:37:17,407 (client:259) INFO: {'Role': 'Client #13', 'Round': 18, 'Results_raw': {'train_mse': 0.01024, 'train_total': 1024, 'train_loss': 18.992417, 'train_imp_ratio': -133.314851, 'train_avg_loss': 0.018547}}
+2022-09-06 20:37:18,572 (client:259) INFO: {'Role': 'Client #5', 'Round': 18, 'Results_raw': {'train_total': 1004, 'train_loss': 1063.872365, 'train_imp_ratio': -0.398507, 'train_avg_loss': 1.059634, 'train_acc': 0.601594}}
+2022-09-06 20:37:19,826 (client:259) INFO: {'Role': 'Client #1', 'Round': 18, 'Results_raw': {'train_total': 1024, 'train_loss': 2582.561531, 'train_imp_ratio': -1.806629, 'train_avg_loss': 2.522033, 'train_acc': 0.731445}}
+2022-09-06 20:37:21,214 (client:259) INFO: {'Role': 'Client #9', 'Round': 18, 'Results_raw': {'train_mse': 0.058355, 'train_total': 1024, 'train_loss': 454.246483, 'train_imp_ratio': 1.426191, 'train_avg_loss': 0.4436}}
+2022-09-06 20:37:22,480 (client:259) INFO: {'Role': 'Client #6', 'Round': 18, 'Results_raw': {'train_total': 1024, 'train_loss': 806.827068, 'train_imp_ratio': -2.666369, 'train_avg_loss': 0.787917, 'train_acc': 0.731445}}
+2022-09-06 20:37:23,576 (client:259) INFO: {'Role': 'Client #8', 'Round': 18, 'Results_raw': {'train_total': 969, 'train_loss': 532.282674, 'train_imp_ratio': 19.016617, 'train_avg_loss': 0.549311, 'train_acc': 0.828689}}
+2022-09-06 20:37:24,865 (client:259) INFO: {'Role': 'Client #10', 'Round': 18, 'Results_raw': {'train_mse': 0.012663, 'train_total': 1024, 'train_loss': 26.264249, 'train_imp_ratio': -78.78335, 'train_avg_loss': 0.025649}}
+2022-09-06 20:37:26,196 (client:259) INFO: {'Role': 'Client #12', 'Round': 18, 'Results_raw': {'train_mse': 1.624655, 'train_total': 992, 'train_loss': 11939.80426, 'train_imp_ratio': -19.343567, 'train_avg_loss': 12.036093}}
+2022-09-06 20:37:27,568 (client:259) INFO: {'Role': 'Client #7', 'Round': 18, 'Results_raw': {'train_total': 1024, 'train_loss': 1397.044426, 'train_imp_ratio': -11.098526, 'train_avg_loss': 1.364301, 'train_acc': 0.664062}}
+2022-09-06 20:37:28,936 (client:259) INFO: {'Role': 'Client #11', 'Round': 18, 'Results_raw': {'train_mse': 1.123951, 'train_total': 1024, 'train_loss': 3361.895683, 'train_imp_ratio': -53.12449, 'train_avg_loss': 3.283101}}
+2022-09-06 20:37:30,054 (client:259) INFO: {'Role': 'Client #4', 'Round': 18, 'Results_raw': {'train_total': 808, 'train_loss': 2307.931237, 'train_imp_ratio': 35.478698, 'train_avg_loss': 2.856351, 'train_acc': 0.886139}}
+2022-09-06 20:37:31,405 (client:259) INFO: {'Role': 'Client #3', 'Round': 18, 'Results_raw': {'train_total': 1024, 'train_loss': 1015.456917, 'train_imp_ratio': -29.419179, 'train_avg_loss': 0.991657, 'train_acc': 0.540039}}
+2022-09-06 20:37:31,420 (server:321) INFO: ----------- Starting a new training round (Round #19) -------------
+2022-09-06 20:37:32,683 (client:259) INFO: {'Role': 'Client #5', 'Round': 19, 'Results_raw': {'train_total': 1004, 'train_loss': 1066.084248, 'train_imp_ratio': -1.904484, 'train_avg_loss': 1.061837, 'train_acc': 0.595618}}
+2022-09-06 20:37:33,971 (client:259) INFO: {'Role': 'Client #13', 'Round': 19, 'Results_raw': {'train_mse': 0.010188, 'train_total': 1024, 'train_loss': 19.449119, 'train_imp_ratio': -132.12569, 'train_avg_loss': 0.018993}}
+2022-09-06 20:37:35,295 (client:259) INFO: {'Role': 'Client #1', 'Round': 19, 'Results_raw': {'train_total': 1024, 'train_loss': 2631.040688, 'train_imp_ratio': 6.708108, 'train_avg_loss': 2.569376, 'train_acc': 0.753906}}
+2022-09-06 20:37:36,573 (client:259) INFO: {'Role': 'Client #10', 'Round': 19, 'Results_raw': {'train_mse': 0.011361, 'train_total': 1024, 'train_loss': 25.006071, 'train_imp_ratio': -60.404989, 'train_avg_loss': 0.02442}}
+2022-09-06 20:37:37,898 (client:259) INFO: {'Role': 'Client #12', 'Round': 19, 'Results_raw': {'train_mse': 1.632146, 'train_total': 992, 'train_loss': 11847.401215, 'train_imp_ratio': -19.893856, 'train_avg_loss': 11.942945}}
+2022-09-06 20:37:39,147 (client:259) INFO: {'Role': 'Client #2', 'Round': 19, 'Results_raw': {'train_total': 969, 'train_loss': 1042.562782, 'train_imp_ratio': -11.531235, 'train_avg_loss': 1.075916, 'train_acc': 0.676987}}
+2022-09-06 20:37:40,409 (client:259) INFO: {'Role': 'Client #8', 'Round': 19, 'Results_raw': {'train_total': 969, 'train_loss': 509.89065, 'train_imp_ratio': 21.455875, 'train_avg_loss': 0.526203, 'train_acc': 0.833849}}
+2022-09-06 20:37:41,429 (client:259) INFO: {'Role': 'Client #4', 'Round': 19, 'Results_raw': {'train_total': 808, 'train_loss': 2838.706702, 'train_imp_ratio': 38.283972, 'train_avg_loss': 3.513251, 'train_acc': 0.891089}}
+2022-09-06 20:37:42,550 (client:259) INFO: {'Role': 'Client #3', 'Round': 19, 'Results_raw': {'train_total': 1024, 'train_loss': 1013.947086, 'train_imp_ratio': -24.198447, 'train_avg_loss': 0.990183, 'train_acc': 0.558594}}
+2022-09-06 20:37:43,696 (client:259) INFO: {'Role': 'Client #9', 'Round': 19, 'Results_raw': {'train_mse': 0.062731, 'train_total': 1024, 'train_loss': 503.012875, 'train_imp_ratio': -5.965885, 'train_avg_loss': 0.491224}}
+2022-09-06 20:37:44,772 (client:259) INFO: {'Role': 'Client #6', 'Round': 19, 'Results_raw': {'train_total': 1024, 'train_loss': 798.962334, 'train_imp_ratio': -2.666369, 'train_avg_loss': 0.780237, 'train_acc': 0.731445}}
+2022-09-06 20:37:45,877 (client:259) INFO: {'Role': 'Client #7', 'Round': 19, 'Results_raw': {'train_total': 1024, 'train_loss': 1432.560974, 'train_imp_ratio': -7.868917, 'train_avg_loss': 1.398985, 'train_acc': 0.673828}}
+2022-09-06 20:37:46,983 (client:259) INFO: {'Role': 'Client #11', 'Round': 19, 'Results_raw': {'train_mse': 1.120672, 'train_total': 1024, 'train_loss': 3897.501022, 'train_imp_ratio': -52.677819, 'train_avg_loss': 3.806153}}
+2022-09-06 20:37:46,999 (server:314) INFO: Server #0: Starting evaluation at the end of round 19.
+2022-09-06 20:37:46,999 (server:321) INFO: ----------- Starting a new training round (Round #20) -------------
+2022-09-06 20:39:19,687 (client:259) INFO: {'Role': 'Client #5', 'Round': 20, 'Results_raw': {'train_total': 1004, 'train_loss': 1063.576111, 'train_imp_ratio': -0.900499, 'train_avg_loss': 1.059339, 'train_acc': 0.599602}}
+2022-09-06 20:39:20,904 (client:259) INFO: {'Role': 'Client #9', 'Round': 20, 'Results_raw': {'train_mse': 0.062433, 'train_total': 1024, 'train_loss': 515.894409, 'train_imp_ratio': -5.462346, 'train_avg_loss': 0.503803}}
+2022-09-06 20:39:21,991 (client:259) INFO: {'Role': 'Client #2', 'Round': 20, 'Results_raw': {'train_total': 969, 'train_loss': 1062.30949, 'train_imp_ratio': -10.462245, 'train_avg_loss': 1.096295, 'train_acc': 0.680083}}
+2022-09-06 20:39:23,222 (client:259) INFO: {'Role': 'Client #1', 'Round': 20, 'Results_raw': {'train_total': 1024, 'train_loss': 2942.000854, 'train_imp_ratio': 1.525225, 'train_avg_loss': 2.873048, 'train_acc': 0.740234}}
+2022-09-06 20:39:24,500 (client:259) INFO: {'Role': 'Client #6', 'Round': 20, 'Results_raw': {'train_total': 1024, 'train_loss': 783.893608, 'train_imp_ratio': -1.919704, 'train_avg_loss': 0.765521, 'train_acc': 0.733398}}
+2022-09-06 20:39:25,685 (client:259) INFO: {'Role': 'Client #3', 'Round': 20, 'Results_raw': {'train_total': 1024, 'train_loss': 1014.902302, 'train_imp_ratio': -23.923672, 'train_avg_loss': 0.991116, 'train_acc': 0.55957}}
+2022-09-06 20:39:26,884 (client:259) INFO: {'Role': 'Client #7', 'Round': 20, 'Results_raw': {'train_total': 1024, 'train_loss': 1445.158333, 'train_imp_ratio': -12.390369, 'train_avg_loss': 1.411287, 'train_acc': 0.660156}}
+2022-09-06 20:39:28,021 (client:259) INFO: {'Role': 'Client #12', 'Round': 20, 'Results_raw': {'train_mse': 1.400327, 'train_total': 992, 'train_loss': 13548.414246, 'train_imp_ratio': -2.864925, 'train_avg_loss': 13.657676}}
+2022-09-06 20:39:29,261 (client:259) INFO: {'Role': 'Client #11', 'Round': 20, 'Results_raw': {'train_mse': 1.098525, 'train_total': 1024, 'train_loss': 4598.208511, 'train_imp_ratio': -49.660521, 'train_avg_loss': 4.490438}}
+2022-09-06 20:39:30,367 (client:259) INFO: {'Role': 'Client #10', 'Round': 20, 'Results_raw': {'train_mse': 0.011956, 'train_total': 1024, 'train_loss': 26.592104, 'train_imp_ratio': -68.804445, 'train_avg_loss': 0.025969}}
+2022-09-06 20:39:31,416 (client:259) INFO: {'Role': 'Client #8', 'Round': 20, 'Results_raw': {'train_total': 969, 'train_loss': 517.360704, 'train_imp_ratio': 21.455875, 'train_avg_loss': 0.533912, 'train_acc': 0.833849}}
+2022-09-06 20:39:32,569 (client:259) INFO: {'Role': 'Client #13', 'Round': 20, 'Results_raw': {'train_mse': 0.009597, 'train_total': 1024, 'train_loss': 18.55809, 'train_imp_ratio': -118.650669, 'train_avg_loss': 0.018123}}
+2022-09-06 20:39:33,582 (client:259) INFO: {'Role': 'Client #4', 'Round': 20, 'Results_raw': {'train_total': 808, 'train_loss': 2916.336671, 'train_imp_ratio': 41.790565, 'train_avg_loss': 3.609328, 'train_acc': 0.897277}}
+2022-09-06 20:39:33,582 (server:487) INFO: {'Role': 'Server #', 'Round': 20, 'Results_avg': {'test_total': 8350.846154, 'test_loss': 6640.435823, 'test_imp_ratio': -939.34671, 'test_avg_loss': 1.689227, 'test_acc': 0.659965, 'val_total': 8350.461538, 'val_loss': 444.317046, 'val_imp_ratio': -20.577068, 'val_avg_loss': 0.528982, 'val_acc': 0.678163, 'test_mse': 3.96073, 'val_mse': 0.548492}}
+2022-09-06 20:39:33,582 (server:321) INFO: ----------- Starting a new training round (Round #21) -------------
+2022-09-06 20:39:34,739 (client:259) INFO: {'Role': 'Client #10', 'Round': 21, 'Results_raw': {'train_mse': 0.011601, 'train_total': 1024, 'train_loss': 25.880618, 'train_imp_ratio': -63.779735, 'train_avg_loss': 0.025274}}
+2022-09-06 20:39:35,951 (client:259) INFO: {'Role': 'Client #11', 'Round': 21, 'Results_raw': {'train_mse': 1.110605, 'train_total': 1024, 'train_loss': 4328.292374, 'train_imp_ratio': -51.306364, 'train_avg_loss': 4.226848}}
+2022-09-06 20:39:36,982 (client:259) INFO: {'Role': 'Client #4', 'Round': 21, 'Results_raw': {'train_total': 808, 'train_loss': 2509.515306, 'train_imp_ratio': 43.193202, 'train_avg_loss': 3.105836, 'train_acc': 0.899752}}
+2022-09-06 20:39:38,174 (client:259) INFO: {'Role': 'Client #9', 'Round': 21, 'Results_raw': {'train_mse': 0.067158, 'train_total': 1024, 'train_loss': 454.208344, 'train_imp_ratio': -13.444821, 'train_avg_loss': 0.443563}}
+2022-09-06 20:39:39,322 (client:259) INFO: {'Role': 'Client #1', 'Round': 21, 'Results_raw': {'train_total': 1024, 'train_loss': 3119.568161, 'train_imp_ratio': 10.410167, 'train_avg_loss': 3.046453, 'train_acc': 0.763672}}
+2022-09-06 20:39:40,483 (client:259) INFO: {'Role': 'Client #7', 'Round': 21, 'Results_raw': {'train_total': 1024, 'train_loss': 1473.246284, 'train_imp_ratio': -9.483722, 'train_avg_loss': 1.438717, 'train_acc': 0.668945}}
+2022-09-06 20:39:41,635 (client:259) INFO: {'Role': 'Client #3', 'Round': 21, 'Results_raw': {'train_total': 1024, 'train_loss': 1017.032246, 'train_imp_ratio': -25.022773, 'train_avg_loss': 0.993196, 'train_acc': 0.555664}}
+2022-09-06 20:39:42,726 (client:259) INFO: {'Role': 'Client #5', 'Round': 21, 'Results_raw': {'train_total': 1004, 'train_loss': 1056.930198, 'train_imp_ratio': -0.900499, 'train_avg_loss': 1.052719, 'train_acc': 0.599602}}
+2022-09-06 20:39:43,791 (client:259) INFO: {'Role': 'Client #2', 'Round': 21, 'Results_raw': {'train_total': 969, 'train_loss': 1066.07441, 'train_imp_ratio': -11.887564, 'train_avg_loss': 1.10018, 'train_acc': 0.675955}}
+2022-09-06 20:39:44,922 (client:259) INFO: {'Role': 'Client #6', 'Round': 21, 'Results_raw': {'train_total': 1024, 'train_loss': 782.40538, 'train_imp_ratio': -2.293037, 'train_avg_loss': 0.764068, 'train_acc': 0.732422}}
+2022-09-06 20:39:46,059 (client:259) INFO: {'Role': 'Client #13', 'Round': 21, 'Results_raw': {'train_mse': 0.009507, 'train_total': 1024, 'train_loss': 18.325041, 'train_imp_ratio': -116.611074, 'train_avg_loss': 0.017896}}
+2022-09-06 20:39:47,180 (client:259) INFO: {'Role': 'Client #8', 'Round': 21, 'Results_raw': {'train_total': 969, 'train_loss': 514.499443, 'train_imp_ratio': 19.504468, 'train_avg_loss': 0.530959, 'train_acc': 0.829721}}
+2022-09-06 20:39:48,335 (client:259) INFO: {'Role': 'Client #12', 'Round': 21, 'Results_raw': {'train_mse': 1.658604, 'train_total': 992, 'train_loss': 12557.604004, 'train_imp_ratio': -21.837404, 'train_avg_loss': 12.658875}}
+2022-09-06 20:39:48,335 (server:321) INFO: ----------- Starting a new training round (Round #22) -------------
+2022-09-06 20:39:49,563 (client:259) INFO: {'Role': 'Client #11', 'Round': 22, 'Results_raw': {'train_mse': 1.057303, 'train_total': 1024, 'train_loss': 4201.70369, 'train_imp_ratio': -44.044532, 'train_avg_loss': 4.103226}}
+2022-09-06 20:39:50,595 (client:259) INFO: {'Role': 'Client #4', 'Round': 22, 'Results_raw': {'train_total': 808, 'train_loss': 2838.140104, 'train_imp_ratio': 46.699794, 'train_avg_loss': 3.51255, 'train_acc': 0.905941}}
+2022-09-06 20:39:51,958 (client:259) INFO: {'Role': 'Client #9', 'Round': 22, 'Results_raw': {'train_mse': 0.05835, 'train_total': 1024, 'train_loss': 468.298855, 'train_imp_ratio': 1.434705, 'train_avg_loss': 0.457323}}
+2022-09-06 20:39:53,115 (client:259) INFO: {'Role': 'Client #13', 'Round': 22, 'Results_raw': {'train_mse': 0.008663, 'train_total': 1024, 'train_loss': 17.532256, 'train_imp_ratio': -97.381799, 'train_avg_loss': 0.017121}}
+2022-09-06 20:39:54,194 (client:259) INFO: {'Role': 'Client #2', 'Round': 22, 'Results_raw': {'train_total': 969, 'train_loss': 1083.767053, 'train_imp_ratio': -12.243894, 'train_avg_loss': 1.118439, 'train_acc': 0.674923}}
+2022-09-06 20:39:55,247 (client:259) INFO: {'Role': 'Client #8', 'Round': 22, 'Results_raw': {'train_total': 969, 'train_loss': 528.033899, 'train_imp_ratio': 22.91943, 'train_avg_loss': 0.544927, 'train_acc': 0.836945}}
+2022-09-06 20:39:56,451 (client:259) INFO: {'Role': 'Client #12', 'Round': 22, 'Results_raw': {'train_mse': 1.481642, 'train_total': 992, 'train_loss': 13745.725708, 'train_imp_ratio': -8.838183, 'train_avg_loss': 13.856578}}
+2022-09-06 20:39:57,623 (client:259) INFO: {'Role': 'Client #7', 'Round': 22, 'Results_raw': {'train_total': 1024, 'train_loss': 1478.896156, 'train_imp_ratio': -10.452604, 'train_avg_loss': 1.444235, 'train_acc': 0.666016}}
+2022-09-06 20:39:58,734 (client:259) INFO: {'Role': 'Client #10', 'Round': 22, 'Results_raw': {'train_mse': 0.01166, 'train_total': 1024, 'train_loss': 25.195019, 'train_imp_ratio': -64.618937, 'train_avg_loss': 0.024605}}
+2022-09-06 20:40:00,026 (client:259) INFO: {'Role': 'Client #6', 'Round': 22, 'Results_raw': {'train_total': 1024, 'train_loss': 778.01091, 'train_imp_ratio': -3.413033, 'train_avg_loss': 0.759776, 'train_acc': 0.729492}}
+2022-09-06 20:40:01,254 (client:259) INFO: {'Role': 'Client #3', 'Round': 22, 'Results_raw': {'train_total': 1024, 'train_loss': 1022.621185, 'train_imp_ratio': -30.243505, 'train_avg_loss': 0.998654, 'train_acc': 0.537109}}
+2022-09-06 20:40:02,382 (client:259) INFO: {'Role': 'Client #1', 'Round': 22, 'Results_raw': {'train_total': 1024, 'train_loss': 2860.655212, 'train_imp_ratio': 7.078314, 'train_avg_loss': 2.793609, 'train_acc': 0.754883}}
+2022-09-06 20:40:03,451 (client:259) INFO: {'Role': 'Client #5', 'Round': 22, 'Results_raw': {'train_total': 1004, 'train_loss': 1053.843159, 'train_imp_ratio': 1.107471, 'train_avg_loss': 1.049645, 'train_acc': 0.60757}}
+2022-09-06 20:40:03,451 (server:321) INFO: ----------- Starting a new training round (Round #23) -------------
+2022-09-06 20:40:04,606 (client:259) INFO: {'Role': 'Client #7', 'Round': 23, 'Results_raw': {'train_total': 1024, 'train_loss': 1491.530914, 'train_imp_ratio': -19.495507, 'train_avg_loss': 1.456573, 'train_acc': 0.638672}}
+2022-09-06 20:40:05,689 (client:259) INFO: {'Role': 'Client #8', 'Round': 23, 'Results_raw': {'train_total': 969, 'train_loss': 544.292724, 'train_imp_ratio': 20.480172, 'train_avg_loss': 0.561706, 'train_acc': 0.831785}}
+2022-09-06 20:40:06,848 (client:259) INFO: {'Role': 'Client #3', 'Round': 23, 'Results_raw': {'train_total': 1024, 'train_loss': 1009.077599, 'train_imp_ratio': -16.779514, 'train_avg_loss': 0.985427, 'train_acc': 0.584961}}
+2022-09-06 20:40:07,993 (client:259) INFO: {'Role': 'Client #6', 'Round': 23, 'Results_raw': {'train_total': 1024, 'train_loss': 780.44582, 'train_imp_ratio': -2.293037, 'train_avg_loss': 0.762154, 'train_acc': 0.732422}}
+2022-09-06 20:40:09,153 (client:259) INFO: {'Role': 'Client #11', 'Round': 23, 'Results_raw': {'train_mse': 1.056612, 'train_total': 1024, 'train_loss': 3829.502853, 'train_imp_ratio': -43.950385, 'train_avg_loss': 3.739749}}
+2022-09-06 20:40:10,148 (client:259) INFO: {'Role': 'Client #4', 'Round': 23, 'Results_raw': {'train_total': 808, 'train_loss': 2809.004881, 'train_imp_ratio': 44.595839, 'train_avg_loss': 3.476491, 'train_acc': 0.902228}}
+2022-09-06 20:40:11,235 (client:259) INFO: {'Role': 'Client #2', 'Round': 23, 'Results_raw': {'train_total': 969, 'train_loss': 1112.660683, 'train_imp_ratio': -12.600224, 'train_avg_loss': 1.148257, 'train_acc': 0.673891}}
+2022-09-06 20:40:12,447 (client:259) INFO: {'Role': 'Client #1', 'Round': 23, 'Results_raw': {'train_total': 1024, 'train_loss': 3221.61396, 'train_imp_ratio': 13.371814, 'train_avg_loss': 3.146107, 'train_acc': 0.771484}}
+2022-09-06 20:40:13,574 (client:259) INFO: {'Role': 'Client #10', 'Round': 23, 'Results_raw': {'train_mse': 0.011413, 'train_total': 1024, 'train_loss': 23.97708, 'train_imp_ratio': -61.130218, 'train_avg_loss': 0.023415}}
+2022-09-06 20:40:14,686 (client:259) INFO: {'Role': 'Client #5', 'Round': 23, 'Results_raw': {'train_total': 1004, 'train_loss': 1055.634543, 'train_imp_ratio': -1.904484, 'train_avg_loss': 1.051429, 'train_acc': 0.595618}}
+2022-09-06 20:40:15,874 (client:259) INFO: {'Role': 'Client #13', 'Round': 23, 'Results_raw': {'train_mse': 0.009151, 'train_total': 1024, 'train_loss': 17.70125, 'train_imp_ratio': -108.488876, 'train_avg_loss': 0.017286}}
+2022-09-06 20:40:17,012 (client:259) INFO: {'Role': 'Client #12', 'Round': 23, 'Results_raw': {'train_mse': 1.407881, 'train_total': 992, 'train_loss': 13329.052795, 'train_imp_ratio': -3.419794, 'train_avg_loss': 13.436545}}
+2022-09-06 20:40:18,233 (client:259) INFO: {'Role': 'Client #9', 'Round': 23, 'Results_raw': {'train_mse': 0.063776, 'train_total': 1024, 'train_loss': 545.046061, 'train_imp_ratio': -7.731174, 'train_avg_loss': 0.532272}}
+2022-09-06 20:40:18,233 (server:321) INFO: ----------- Starting a new training round (Round #24) -------------
+2022-09-06 20:40:19,234 (client:259) INFO: {'Role': 'Client #4', 'Round': 24, 'Results_raw': {'train_total': 808, 'train_loss': 2702.113523, 'train_imp_ratio': 49.505068, 'train_avg_loss': 3.3442, 'train_acc': 0.910891}}
+2022-09-06 20:40:20,397 (client:259) INFO: {'Role': 'Client #7', 'Round': 24, 'Results_raw': {'train_total': 1024, 'train_loss': 1521.86068, 'train_imp_ratio': -5.285231, 'train_avg_loss': 1.486192, 'train_acc': 0.681641}}
+2022-09-06 20:40:21,601 (client:259) INFO: {'Role': 'Client #10', 'Round': 24, 'Results_raw': {'train_mse': 0.01131, 'train_total': 1024, 'train_loss': 24.150739, 'train_imp_ratio': -59.675972, 'train_avg_loss': 0.023585}}
+2022-09-06 20:40:22,730 (client:259) INFO: {'Role': 'Client #1', 'Round': 24, 'Results_raw': {'train_total': 1024, 'train_loss': 3341.25264, 'train_imp_ratio': 4.486872, 'train_avg_loss': 3.262942, 'train_acc': 0.748047}}
+2022-09-06 20:40:23,966 (client:259) INFO: {'Role': 'Client #9', 'Round': 24, 'Results_raw': {'train_mse': 0.072322, 'train_total': 1024, 'train_loss': 517.988781, 'train_imp_ratio': -22.167749, 'train_avg_loss': 0.505848}}
+2022-09-06 20:40:25,038 (client:259) INFO: {'Role': 'Client #8', 'Round': 24, 'Results_raw': {'train_total': 969, 'train_loss': 537.752434, 'train_imp_ratio': 22.91943, 'train_avg_loss': 0.554956, 'train_acc': 0.836945}}
+2022-09-06 20:40:26,219 (client:259) INFO: {'Role': 'Client #11', 'Round': 24, 'Results_raw': {'train_mse': 1.101098, 'train_total': 1024, 'train_loss': 4425.046356, 'train_imp_ratio': -50.011112, 'train_avg_loss': 4.321334}}
+2022-09-06 20:40:27,338 (client:259) INFO: {'Role': 'Client #6', 'Round': 24, 'Results_raw': {'train_total': 1024, 'train_loss': 767.294834, 'train_imp_ratio': -1.919704, 'train_avg_loss': 0.749311, 'train_acc': 0.733398}}
+2022-09-06 20:40:28,431 (client:259) INFO: {'Role': 'Client #5', 'Round': 24, 'Results_raw': {'train_total': 1004, 'train_loss': 1051.22069, 'train_imp_ratio': -1.402492, 'train_avg_loss': 1.047033, 'train_acc': 0.59761}}
+2022-09-06 20:40:29,607 (client:259) INFO: {'Role': 'Client #12', 'Round': 24, 'Results_raw': {'train_mse': 1.337318, 'train_total': 992, 'train_loss': 13686.199158, 'train_imp_ratio': 1.76357, 'train_avg_loss': 13.796572}}
+2022-09-06 20:40:30,790 (client:259) INFO: {'Role': 'Client #3', 'Round': 24, 'Results_raw': {'train_total': 1024, 'train_loss': 1010.571396, 'train_imp_ratio': -22.549795, 'train_avg_loss': 0.986886, 'train_acc': 0.564453}}
+2022-09-06 20:40:31,947 (client:259) INFO: {'Role': 'Client #13', 'Round': 24, 'Results_raw': {'train_mse': 0.008996, 'train_total': 1024, 'train_loss': 17.798569, 'train_imp_ratio': -104.960715, 'train_avg_loss': 0.017381}}
+2022-09-06 20:40:33,023 (client:259) INFO: {'Role': 'Client #2', 'Round': 24, 'Results_raw': {'train_total': 969, 'train_loss': 1162.052637, 'train_imp_ratio': -10.818575, 'train_avg_loss': 1.199229, 'train_acc': 0.679051}}
+2022-09-06 20:40:33,039 (server:314) INFO: Server #0: Starting evaluation at the end of round 24.
+2022-09-06 20:40:33,039 (server:321) INFO: ----------- Starting a new training round (Round #25) -------------
+2022-09-06 20:42:06,791 (client:259) INFO: {'Role': 'Client #9', 'Round': 25, 'Results_raw': {'train_mse': 0.063279, 'train_total': 1024, 'train_loss': 532.962479, 'train_imp_ratio': -6.891661, 'train_avg_loss': 0.520471}}
+2022-09-06 20:42:08,089 (client:259) INFO: {'Role': 'Client #5', 'Round': 25, 'Results_raw': {'train_total': 1004, 'train_loss': 1052.339836, 'train_imp_ratio': 2.111456, 'train_avg_loss': 1.048147, 'train_acc': 0.611554}}
+2022-09-06 20:42:09,509 (client:259) INFO: {'Role': 'Client #11', 'Round': 25, 'Results_raw': {'train_mse': 0.96527, 'train_total': 1024, 'train_loss': 3601.237228, 'train_imp_ratio': -31.506258, 'train_avg_loss': 3.516833}}
+2022-09-06 20:42:10,881 (client:259) INFO: {'Role': 'Client #1', 'Round': 25, 'Results_raw': {'train_total': 1024, 'train_loss': 3387.713211, 'train_imp_ratio': 7.818725, 'train_avg_loss': 3.308314, 'train_acc': 0.756836}}
+2022-09-06 20:42:12,231 (client:259) INFO: {'Role': 'Client #13', 'Round': 25, 'Results_raw': {'train_mse': 0.008863, 'train_total': 1024, 'train_loss': 17.711081, 'train_imp_ratio': -101.935052, 'train_avg_loss': 0.017296}}
+2022-09-06 20:42:13,403 (client:259) INFO: {'Role': 'Client #2', 'Round': 25, 'Results_raw': {'train_total': 969, 'train_loss': 1178.862795, 'train_imp_ratio': -12.956554, 'train_avg_loss': 1.216577, 'train_acc': 0.672859}}
+2022-09-06 20:42:14,602 (client:259) INFO: {'Role': 'Client #7', 'Round': 25, 'Results_raw': {'train_total': 1024, 'train_loss': 1571.746048, 'train_imp_ratio': -9.483722, 'train_avg_loss': 1.534908, 'train_acc': 0.668945}}
+2022-09-06 20:42:15,583 (client:259) INFO: {'Role': 'Client #4', 'Round': 25, 'Results_raw': {'train_total': 808, 'train_loss': 3201.35948, 'train_imp_ratio': 55.816935, 'train_avg_loss': 3.962079, 'train_acc': 0.92203}}
+2022-09-06 20:42:16,673 (client:259) INFO: {'Role': 'Client #10', 'Round': 25, 'Results_raw': {'train_mse': 0.010155, 'train_total': 1024, 'train_loss': 23.293259, 'train_imp_ratio': -43.378248, 'train_avg_loss': 0.022747}}
+2022-09-06 20:42:17,739 (client:259) INFO: {'Role': 'Client #8', 'Round': 25, 'Results_raw': {'train_total': 969, 'train_loss': 528.61819, 'train_imp_ratio': 25.358689, 'train_avg_loss': 0.54553, 'train_acc': 0.842105}}
+2022-09-06 20:42:18,884 (client:259) INFO: {'Role': 'Client #6', 'Round': 25, 'Results_raw': {'train_total': 1024, 'train_loss': 769.894142, 'train_imp_ratio': -1.17304, 'train_avg_loss': 0.75185, 'train_acc': 0.735352}}
+2022-09-06 20:42:20,177 (client:259) INFO: {'Role': 'Client #12', 'Round': 25, 'Results_raw': {'train_mse': 1.342335, 'train_total': 992, 'train_loss': 16040.169556, 'train_imp_ratio': 1.395029, 'train_avg_loss': 16.169526}}
+2022-09-06 20:42:21,590 (client:259) INFO: {'Role': 'Client #3', 'Round': 25, 'Results_raw': {'train_total': 1024, 'train_loss': 1014.294731, 'train_imp_ratio': -26.121875, 'train_avg_loss': 0.990522, 'train_acc': 0.551758}}
+2022-09-06 20:42:21,590 (server:487) INFO: {'Role': 'Server #', 'Round': 25, 'Results_avg': {'test_total': 8350.846154, 'test_loss': 5999.207445, 'test_imp_ratio': -902.770011, 'test_avg_loss': 1.575726, 'test_acc': 0.590883, 'val_total': 8350.461538, 'val_loss': 566.449546, 'val_imp_ratio': -26.018788, 'val_avg_loss': 0.546037, 'val_acc': 0.683101, 'test_mse': 3.563526, 'val_mse': 0.570601}}
+2022-09-06 20:42:21,606 (server:321) INFO: ----------- Starting a new training round (Round #26) -------------
+2022-09-06 20:42:23,024 (client:259) INFO: {'Role': 'Client #11', 'Round': 26, 'Results_raw': {'train_mse': 1.022609, 'train_total': 1024, 'train_loss': 3958.374146, 'train_imp_ratio': -39.318004, 'train_avg_loss': 3.8656}}
+2022-09-06 20:42:24,473 (client:259) INFO: {'Role': 'Client #9', 'Round': 26, 'Results_raw': {'train_mse': 0.073739, 'train_total': 1024, 'train_loss': 528.90126, 'train_imp_ratio': -24.56091, 'train_avg_loss': 0.516505}}
+2022-09-06 20:42:25,838 (client:259) INFO: {'Role': 'Client #13', 'Round': 26, 'Results_raw': {'train_mse': 0.008862, 'train_total': 1024, 'train_loss': 17.645678, 'train_imp_ratio': -101.903859, 'train_avg_loss': 0.017232}}
+2022-09-06 20:42:27,249 (client:259) INFO: {'Role': 'Client #7', 'Round': 26, 'Results_raw': {'train_total': 1024, 'train_loss': 1530.184143, 'train_imp_ratio': -6.577074, 'train_avg_loss': 1.49432, 'train_acc': 0.677734}}
+2022-09-06 20:42:28,527 (client:259) INFO: {'Role': 'Client #8', 'Round': 26, 'Results_raw': {'train_total': 969, 'train_loss': 556.716524, 'train_imp_ratio': 19.016617, 'train_avg_loss': 0.574527, 'train_acc': 0.828689}}
+2022-09-06 20:42:29,837 (client:259) INFO: {'Role': 'Client #5', 'Round': 26, 'Results_raw': {'train_total': 1004, 'train_loss': 1050.610864, 'train_imp_ratio': 0.354482, 'train_avg_loss': 1.046425, 'train_acc': 0.604582}}
+2022-09-06 20:42:31,125 (client:259) INFO: {'Role': 'Client #2', 'Round': 26, 'Results_raw': {'train_total': 969, 'train_loss': 1208.640709, 'train_imp_ratio': -8.680596, 'train_avg_loss': 1.247307, 'train_acc': 0.685243}}
+2022-09-06 20:42:32,293 (client:259) INFO: {'Role': 'Client #4', 'Round': 26, 'Results_raw': {'train_total': 808, 'train_loss': 3379.678582, 'train_imp_ratio': 52.310342, 'train_avg_loss': 4.182771, 'train_acc': 0.915842}}
+2022-09-06 20:42:33,664 (client:259) INFO: {'Role': 'Client #1', 'Round': 26, 'Results_raw': {'train_total': 1024, 'train_loss': 2980.130325, 'train_imp_ratio': -3.657658, 'train_avg_loss': 2.910284, 'train_acc': 0.726562}}
+2022-09-06 20:42:35,082 (client:259) INFO: {'Role': 'Client #3', 'Round': 26, 'Results_raw': {'train_total': 1024, 'train_loss': 1009.434864, 'train_imp_ratio': -18.702941, 'train_avg_loss': 0.985776, 'train_acc': 0.578125}}
+2022-09-06 20:42:36,438 (client:259) INFO: {'Role': 'Client #12', 'Round': 26, 'Results_raw': {'train_mse': 1.237665, 'train_total': 992, 'train_loss': 15598.464355, 'train_imp_ratio': 9.083868, 'train_avg_loss': 15.724258}}
+2022-09-06 20:42:37,761 (client:259) INFO: {'Role': 'Client #10', 'Round': 26, 'Results_raw': {'train_mse': 0.011033, 'train_total': 1024, 'train_loss': 23.230084, 'train_imp_ratio': -55.763076, 'train_avg_loss': 0.022686}}
+2022-09-06 20:42:39,117 (client:259) INFO: {'Role': 'Client #6', 'Round': 26, 'Results_raw': {'train_total': 1024, 'train_loss': 759.850792, 'train_imp_ratio': -3.413033, 'train_avg_loss': 0.742042, 'train_acc': 0.729492}}
+2022-09-06 20:42:39,133 (server:321) INFO: ----------- Starting a new training round (Round #27) -------------
+2022-09-06 20:42:40,489 (client:259) INFO: {'Role': 'Client #6', 'Round': 27, 'Results_raw': {'train_total': 1024, 'train_loss': 761.086708, 'train_imp_ratio': 0.693621, 'train_avg_loss': 0.743249, 'train_acc': 0.740234}}
+2022-09-06 20:42:41,744 (client:259) INFO: {'Role': 'Client #3', 'Round': 27, 'Results_raw': {'train_total': 1024, 'train_loss': 1017.006573, 'train_imp_ratio': -26.39665, 'train_avg_loss': 0.99317, 'train_acc': 0.550781}}
+2022-09-06 20:42:42,803 (client:259) INFO: {'Role': 'Client #2', 'Round': 27, 'Results_raw': {'train_total': 969, 'train_loss': 1215.316505, 'train_imp_ratio': -12.243894, 'train_avg_loss': 1.254197, 'train_acc': 0.674923}}
+2022-09-06 20:42:43,871 (client:259) INFO: {'Role': 'Client #8', 'Round': 27, 'Results_raw': {'train_total': 969, 'train_loss': 576.434126, 'train_imp_ratio': 22.431579, 'train_avg_loss': 0.594875, 'train_acc': 0.835913}}
+2022-09-06 20:42:45,055 (client:259) INFO: {'Role': 'Client #11', 'Round': 27, 'Results_raw': {'train_mse': 1.044697, 'train_total': 1024, 'train_loss': 6167.277252, 'train_imp_ratio': -42.327214, 'train_avg_loss': 6.022732}}
+2022-09-06 20:42:46,177 (client:259) INFO: {'Role': 'Client #12', 'Round': 27, 'Results_raw': {'train_mse': 1.427676, 'train_total': 992, 'train_loss': 14372.259216, 'train_imp_ratio': -4.873904, 'train_avg_loss': 14.488165}}
+2022-09-06 20:42:47,141 (client:259) INFO: {'Role': 'Client #4', 'Round': 27, 'Results_raw': {'train_total': 808, 'train_loss': 3521.472149, 'train_imp_ratio': 45.998476, 'train_avg_loss': 4.358258, 'train_acc': 0.904703}}
+2022-09-06 20:42:48,231 (client:259) INFO: {'Role': 'Client #10', 'Round': 27, 'Results_raw': {'train_mse': 0.010502, 'train_total': 1024, 'train_loss': 22.631467, 'train_imp_ratio': -48.263924, 'train_avg_loss': 0.022101}}
+2022-09-06 20:42:49,491 (client:259) INFO: {'Role': 'Client #9', 'Round': 27, 'Results_raw': {'train_mse': 0.06497, 'train_total': 1024, 'train_loss': 447.694223, 'train_imp_ratio': -9.748503, 'train_avg_loss': 0.437201}}
+2022-09-06 20:42:50,615 (client:259) INFO: {'Role': 'Client #5', 'Round': 27, 'Results_raw': {'train_total': 1004, 'train_loss': 1048.962419, 'train_imp_ratio': -1.151496, 'train_avg_loss': 1.044783, 'train_acc': 0.598606}}
+2022-09-06 20:42:51,761 (client:259) INFO: {'Role': 'Client #13', 'Round': 27, 'Results_raw': {'train_mse': 0.008831, 'train_total': 1024, 'train_loss': 17.525675, 'train_imp_ratio': -101.205399, 'train_avg_loss': 0.017115}}
+2022-09-06 20:42:52,939 (client:259) INFO: {'Role': 'Client #7', 'Round': 27, 'Results_raw': {'train_total': 1024, 'train_loss': 1609.362694, 'train_imp_ratio': -12.390369, 'train_avg_loss': 1.571643, 'train_acc': 0.660156}}
+2022-09-06 20:42:54,062 (client:259) INFO: {'Role': 'Client #1', 'Round': 27, 'Results_raw': {'train_total': 1024, 'train_loss': 3087.181503, 'train_imp_ratio': 8.188931, 'train_avg_loss': 3.014826, 'train_acc': 0.757812}}
+2022-09-06 20:42:54,062 (server:321) INFO: ----------- Starting a new training round (Round #28) -------------
+2022-09-06 20:42:55,295 (client:259) INFO: {'Role': 'Client #7', 'Round': 28, 'Results_raw': {'train_total': 1024, 'train_loss': 1617.826225, 'train_imp_ratio': -13.359251, 'train_avg_loss': 1.579908, 'train_acc': 0.657227}}
+2022-09-06 20:42:56,370 (client:259) INFO: {'Role': 'Client #5', 'Round': 28, 'Results_raw': {'train_total': 1004, 'train_loss': 1043.678151, 'train_imp_ratio': 1.107471, 'train_avg_loss': 1.03952, 'train_acc': 0.60757}}
+2022-09-06 20:42:57,547 (client:259) INFO: {'Role': 'Client #11', 'Round': 28, 'Results_raw': {'train_mse': 1.141493, 'train_total': 1024, 'train_loss': 4795.281677, 'train_imp_ratio': -55.514471, 'train_avg_loss': 4.682892}}
+2022-09-06 20:42:58,721 (client:259) INFO: {'Role': 'Client #12', 'Round': 28, 'Results_raw': {'train_mse': 1.404264, 'train_total': 992, 'train_loss': 15190.618744, 'train_imp_ratio': -3.154102, 'train_avg_loss': 15.313124}}
+2022-09-06 20:42:59,811 (client:259) INFO: {'Role': 'Client #2', 'Round': 28, 'Results_raw': {'train_total': 969, 'train_loss': 1275.204859, 'train_imp_ratio': -9.393256, 'train_avg_loss': 1.316001, 'train_acc': 0.683179}}
+2022-09-06 20:43:01,020 (client:259) INFO: {'Role': 'Client #3', 'Round': 28, 'Results_raw': {'train_total': 1024, 'train_loss': 1012.726444, 'train_imp_ratio': -22.549795, 'train_avg_loss': 0.988991, 'train_acc': 0.564453}}
+2022-09-06 20:43:02,170 (client:259) INFO: {'Role': 'Client #6', 'Round': 28, 'Results_raw': {'train_total': 1024, 'train_loss': 769.075588, 'train_imp_ratio': -4.159698, 'train_avg_loss': 0.75105, 'train_acc': 0.727539}}
+2022-09-06 20:43:14,300 (client:259) INFO: {'Role': 'Client #10', 'Round': 28, 'Results_raw': {'train_mse': 0.01051, 'train_total': 1024, 'train_loss': 23.230059, 'train_imp_ratio': -48.384932, 'train_avg_loss': 0.022686}}
+2022-09-06 20:43:15,663 (client:259) INFO: {'Role': 'Client #13', 'Round': 28, 'Results_raw': {'train_mse': 0.009008, 'train_total': 1024, 'train_loss': 17.327075, 'train_imp_ratio': -105.229247, 'train_avg_loss': 0.016921}}
+2022-09-06 20:43:17,006 (client:259) INFO: {'Role': 'Client #9', 'Round': 28, 'Results_raw': {'train_mse': 0.053327, 'train_total': 1024, 'train_loss': 438.676182, 'train_imp_ratio': 9.919329, 'train_avg_loss': 0.428395}}
+2022-09-06 20:43:18,075 (client:259) INFO: {'Role': 'Client #4', 'Round': 28, 'Results_raw': {'train_total': 808, 'train_loss': 3665.361817, 'train_imp_ratio': 47.401113, 'train_avg_loss': 4.536339, 'train_acc': 0.907178}}
+2022-09-06 20:43:19,225 (client:259) INFO: {'Role': 'Client #1', 'Round': 28, 'Results_raw': {'train_total': 1024, 'train_loss': 2943.375099, 'train_imp_ratio': 7.448519, 'train_avg_loss': 2.87439, 'train_acc': 0.755859}}
+2022-09-06 20:43:20,404 (client:259) INFO: {'Role': 'Client #8', 'Round': 28, 'Results_raw': {'train_total': 969, 'train_loss': 569.810229, 'train_imp_ratio': 24.870837, 'train_avg_loss': 0.588039, 'train_acc': 0.841073}}
+2022-09-06 20:43:20,408 (server:321) INFO: ----------- Starting a new training round (Round #29) -------------
+2022-09-06 20:43:21,486 (client:259) INFO: {'Role': 'Client #2', 'Round': 29, 'Results_raw': {'train_total': 969, 'train_loss': 1302.860417, 'train_imp_ratio': -8.324266, 'train_avg_loss': 1.344541, 'train_acc': 0.686275}}
+2022-09-06 20:43:22,541 (client:259) INFO: {'Role': 'Client #4', 'Round': 29, 'Results_raw': {'train_total': 808, 'train_loss': 3281.196511, 'train_imp_ratio': 48.102431, 'train_avg_loss': 4.060887, 'train_acc': 0.908416}}
+2022-09-06 20:43:23,750 (client:259) INFO: {'Role': 'Client #9', 'Round': 29, 'Results_raw': {'train_mse': 0.063394, 'train_total': 1024, 'train_loss': 440.72365, 'train_imp_ratio': -7.08587, 'train_avg_loss': 0.430394}}
+2022-09-06 20:43:24,883 (client:259) INFO: {'Role': 'Client #8', 'Round': 29, 'Results_raw': {'train_total': 969, 'train_loss': 576.235415, 'train_imp_ratio': 22.91943, 'train_avg_loss': 0.59467, 'train_acc': 0.836945}}
+2022-09-06 20:43:26,041 (client:259) INFO: {'Role': 'Client #6', 'Round': 29, 'Results_raw': {'train_total': 1024, 'train_loss': 756.874752, 'train_imp_ratio': -1.919704, 'train_avg_loss': 0.739136, 'train_acc': 0.733398}}
+2022-09-06 20:43:27,339 (client:259) INFO: {'Role': 'Client #11', 'Round': 29, 'Results_raw': {'train_mse': 1.106755, 'train_total': 1024, 'train_loss': 4920.226395, 'train_imp_ratio': -50.781819, 'train_avg_loss': 4.804909}}
+2022-09-06 20:43:28,647 (client:259) INFO: {'Role': 'Client #7', 'Round': 29, 'Results_raw': {'train_total': 1024, 'train_loss': 1559.446495, 'train_imp_ratio': -9.483722, 'train_avg_loss': 1.522897, 'train_acc': 0.668945}}
+2022-09-06 20:43:30,046 (client:259) INFO: {'Role': 'Client #3', 'Round': 29, 'Results_raw': {'train_total': 1024, 'train_loss': 1011.665131, 'train_imp_ratio': -26.39665, 'train_avg_loss': 0.987954, 'train_acc': 0.550781}}
+2022-09-06 20:43:31,305 (client:259) INFO: {'Role': 'Client #13', 'Round': 29, 'Results_raw': {'train_mse': 0.008369, 'train_total': 1024, 'train_loss': 16.682088, 'train_imp_ratio': -90.679056, 'train_avg_loss': 0.016291}}
+2022-09-06 20:43:32,271 (client:259) INFO: {'Role': 'Client #10', 'Round': 29, 'Results_raw': {'train_mse': 0.010186, 'train_total': 1024, 'train_loss': 22.949361, 'train_imp_ratio': -43.803266, 'train_avg_loss': 0.022411}}
+2022-09-06 20:43:33,227 (client:259) INFO: {'Role': 'Client #5', 'Round': 29, 'Results_raw': {'train_total': 1004, 'train_loss': 1043.045976, 'train_imp_ratio': 1.609463, 'train_avg_loss': 1.03889, 'train_acc': 0.609562}}
+2022-09-06 20:43:34,247 (client:259) INFO: {'Role': 'Client #12', 'Round': 29, 'Results_raw': {'train_mse': 1.357368, 'train_total': 992, 'train_loss': 15024.242889, 'train_imp_ratio': 0.290729, 'train_avg_loss': 15.145406}}
+2022-09-06 20:43:35,267 (client:259) INFO: {'Role': 'Client #1', 'Round': 29, 'Results_raw': {'train_total': 1024, 'train_loss': 3291.024216, 'train_imp_ratio': 8.188931, 'train_avg_loss': 3.213891, 'train_acc': 0.757812}}
+2022-09-06 20:43:35,282 (server:314) INFO: Server #0: Starting evaluation at the end of round 29.
+2022-09-06 20:43:35,282 (server:321) INFO: ----------- Starting a new training round (Round #30) -------------
+2022-09-06 20:45:24,663 (client:259) INFO: {'Role': 'Client #12', 'Round': 30, 'Results_raw': {'train_mse': 1.396279, 'train_total': 992, 'train_loss': 14194.53772, 'train_imp_ratio': -2.567595, 'train_avg_loss': 14.30901}}
+2022-09-06 20:45:25,974 (client:259) INFO: {'Role': 'Client #3', 'Round': 30, 'Results_raw': {'train_total': 1024, 'train_loss': 1019.762051, 'train_imp_ratio': -32.441707, 'train_avg_loss': 0.995861, 'train_acc': 0.529297}}
+2022-09-06 20:45:27,105 (client:259) INFO: {'Role': 'Client #2', 'Round': 30, 'Results_raw': {'train_total': 969, 'train_loss': 1393.994605, 'train_imp_ratio': -6.542617, 'train_avg_loss': 1.438591, 'train_acc': 0.691434}}
+2022-09-06 20:45:28,329 (client:259) INFO: {'Role': 'Client #5', 'Round': 30, 'Results_raw': {'train_total': 1004, 'train_loss': 1040.445598, 'train_imp_ratio': 2.111456, 'train_avg_loss': 1.0363, 'train_acc': 0.611554}}
+2022-09-06 20:45:29,546 (client:259) INFO: {'Role': 'Client #1', 'Round': 30, 'Results_raw': {'train_total': 1024, 'train_loss': 3647.752457, 'train_imp_ratio': 11.520785, 'train_avg_loss': 3.562258, 'train_acc': 0.766602}}
+2022-09-06 20:45:30,803 (client:259) INFO: {'Role': 'Client #7', 'Round': 30, 'Results_raw': {'train_total': 1024, 'train_loss': 1563.562294, 'train_imp_ratio': -11.421487, 'train_avg_loss': 1.526916, 'train_acc': 0.663086}}
+2022-09-06 20:45:32,010 (client:259) INFO: {'Role': 'Client #10', 'Round': 30, 'Results_raw': {'train_mse': 0.01051, 'train_total': 1024, 'train_loss': 23.958993, 'train_imp_ratio': -48.387509, 'train_avg_loss': 0.023397}}
+2022-09-06 20:45:33,262 (client:259) INFO: {'Role': 'Client #6', 'Round': 30, 'Results_raw': {'train_total': 1024, 'train_loss': 750.21946, 'train_imp_ratio': -3.413033, 'train_avg_loss': 0.732636, 'train_acc': 0.729492}}
+2022-09-06 20:45:34,528 (client:259) INFO: {'Role': 'Client #9', 'Round': 30, 'Results_raw': {'train_mse': 0.055801, 'train_total': 1024, 'train_loss': 384.387613, 'train_imp_ratio': 5.739791, 'train_avg_loss': 0.375379}}
+2022-09-06 20:45:35,637 (client:259) INFO: {'Role': 'Client #8', 'Round': 30, 'Results_raw': {'train_total': 969, 'train_loss': 583.535324, 'train_imp_ratio': 18.528765, 'train_avg_loss': 0.602204, 'train_acc': 0.827657}}
+2022-09-06 20:45:36,945 (client:259) INFO: {'Role': 'Client #13', 'Round': 30, 'Results_raw': {'train_mse': 0.008698, 'train_total': 1024, 'train_loss': 17.490992, 'train_imp_ratio': -98.184149, 'train_avg_loss': 0.017081}}
+2022-09-06 20:45:38,233 (client:259) INFO: {'Role': 'Client #11', 'Round': 30, 'Results_raw': {'train_mse': 1.043823, 'train_total': 1024, 'train_loss': 5031.321625, 'train_imp_ratio': -42.208055, 'train_avg_loss': 4.9134}}
+2022-09-06 20:45:39,200 (client:259) INFO: {'Role': 'Client #4', 'Round': 30, 'Results_raw': {'train_total': 808, 'train_loss': 3632.225564, 'train_imp_ratio': 57.219572, 'train_avg_loss': 4.495329, 'train_acc': 0.924505}}
+2022-09-06 20:45:39,200 (server:487) INFO: {'Role': 'Server #', 'Round': 30, 'Results_avg': {'test_total': 8350.846154, 'test_loss': 7227.371598, 'test_imp_ratio': -987.666496, 'test_avg_loss': 1.916212, 'test_acc': 0.622223, 'val_total': 8350.461538, 'val_loss': 371.614939, 'val_imp_ratio': -25.828259, 'val_avg_loss': 0.498695, 'val_acc': 0.65825, 'test_mse': 4.691816, 'val_mse': 0.570392}}
+2022-09-06 20:45:39,216 (server:321) INFO: ----------- Starting a new training round (Round #31) -------------
+2022-09-06 20:45:40,364 (client:259) INFO: {'Role': 'Client #6', 'Round': 31, 'Results_raw': {'train_total': 1024, 'train_loss': 750.389389, 'train_imp_ratio': -1.919704, 'train_avg_loss': 0.732802, 'train_acc': 0.733398}}
+2022-09-06 20:45:41,565 (client:259) INFO: {'Role': 'Client #1', 'Round': 31, 'Results_raw': {'train_total': 1024, 'train_loss': 3477.885437, 'train_imp_ratio': 11.150579, 'train_avg_loss': 3.396372, 'train_acc': 0.765625}}
+2022-09-06 20:45:42,752 (client:259) INFO: {'Role': 'Client #10', 'Round': 31, 'Results_raw': {'train_mse': 0.010785, 'train_total': 1024, 'train_loss': 22.510077, 'train_imp_ratio': -52.25921, 'train_avg_loss': 0.021982}}
+2022-09-06 20:45:44,057 (client:259) INFO: {'Role': 'Client #3', 'Round': 31, 'Results_raw': {'train_total': 1024, 'train_loss': 1014.724701, 'train_imp_ratio': -24.473223, 'train_avg_loss': 0.990942, 'train_acc': 0.557617}}
+2022-09-06 20:45:45,482 (client:259) INFO: {'Role': 'Client #9', 'Round': 31, 'Results_raw': {'train_mse': 0.053075, 'train_total': 1024, 'train_loss': 438.299856, 'train_imp_ratio': 10.344026, 'train_avg_loss': 0.428027}}
+2022-09-06 20:45:46,852 (client:259) INFO: {'Role': 'Client #7', 'Round': 31, 'Results_raw': {'train_total': 1024, 'train_loss': 1568.889801, 'train_imp_ratio': 3.434712, 'train_avg_loss': 1.532119, 'train_acc': 0.708008}}
+2022-09-06 20:45:48,192 (client:259) INFO: {'Role': 'Client #12', 'Round': 31, 'Results_raw': {'train_mse': 1.429024, 'train_total': 992, 'train_loss': 14210.592102, 'train_imp_ratio': -4.972909, 'train_avg_loss': 14.325194}}
+2022-09-06 20:45:49,339 (client:259) INFO: {'Role': 'Client #4', 'Round': 31, 'Results_raw': {'train_total': 808, 'train_loss': 3948.360227, 'train_imp_ratio': 56.518253, 'train_avg_loss': 4.886584, 'train_acc': 0.923267}}
+2022-09-06 20:45:50,408 (client:259) INFO: {'Role': 'Client #2', 'Round': 31, 'Results_raw': {'train_total': 969, 'train_loss': 1412.693499, 'train_imp_ratio': -4.760968, 'train_avg_loss': 1.457888, 'train_acc': 0.696594}}
+2022-09-06 20:45:51,498 (client:259) INFO: {'Role': 'Client #13', 'Round': 31, 'Results_raw': {'train_mse': 0.00868, 'train_total': 1024, 'train_loss': 17.565669, 'train_imp_ratio': -97.770815, 'train_avg_loss': 0.017154}}
+2022-09-06 20:45:52,619 (client:259) INFO: {'Role': 'Client #11', 'Round': 31, 'Results_raw': {'train_mse': 1.047117, 'train_total': 1024, 'train_loss': 5173.94194, 'train_imp_ratio': -42.656788, 'train_avg_loss': 5.052678}}
+2022-09-06 20:45:53,618 (client:259) INFO: {'Role': 'Client #8', 'Round': 31, 'Results_raw': {'train_total': 969, 'train_loss': 597.827112, 'train_imp_ratio': 26.334392, 'train_avg_loss': 0.616953, 'train_acc': 0.844169}}

@@ -1,0 +1,13 @@
+2022-09-03 08:41:13,487 (utils:129) INFO: the current machine is at 172.27.106.76
+2022-09-03 08:41:13,487 (utils:131) INFO: the current dir is C:\Users\Public\FederatedScope4
+2022-09-03 08:41:13,489 (utils:132) INFO: the output dir is exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903084113
+2022-09-03 08:41:14,159 (cikm_cup:57) INFO: Loading CIKMCUP data from C:\Users\Public\FederatedScope4\data\CIKM22Competition.
+2022-09-03 08:41:14,161 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #1.
+2022-09-03 08:41:14,405 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #2.
+2022-09-03 08:41:14,427 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #3.
+2022-09-03 08:41:14,830 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #4.
+2022-09-03 08:41:14,846 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #5.
+2022-09-03 08:41:14,896 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #6.
+2022-09-03 08:41:15,147 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #7.
+2022-09-03 08:41:15,476 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #8.
+2022-09-03 08:41:15,620 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #9.

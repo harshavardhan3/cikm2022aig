@@ -1,0 +1,4 @@
+2022-09-03 05:55:30,633 (utils:129) INFO: the current machine is at 172.27.106.76
+2022-09-03 05:55:30,633 (utils:131) INFO: the current dir is C:\Users\Public\FederatedScope4
+2022-09-03 05:55:30,635 (utils:132) INFO: the output dir is exp\FedAvg_gin_on_cikmcup_lr0.25_lstep16_
+2022-09-03 05:55:31,420 (cikm_cup:57) INFO: Loading CIKMCUP data from C:\Users\Public\FederatedScope4\data\CIKM22Competition.

@@ -1,0 +1,2968 @@
+2022-09-03 19:58:06,532 (utils:129) INFO: the current machine is at 172.27.106.76
+2022-09-03 19:58:06,533 (utils:131) INFO: the current dir is C:\Users\Public\FederatedScope4
+2022-09-03 19:58:06,536 (utils:132) INFO: the output dir is exp\fedem_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903195806
+2022-09-03 19:58:07,215 (cikm_cup:57) INFO: Loading CIKMCUP data from C:\Users\Public\FederatedScope4\data\CIKM22Competition.
+2022-09-03 19:58:07,217 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #1.
+2022-09-03 19:58:07,465 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #2.
+2022-09-03 19:58:07,488 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #3.
+2022-09-03 19:58:07,799 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #4.
+2022-09-03 19:58:07,813 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #5.
+2022-09-03 19:58:07,836 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #6.
+2022-09-03 19:58:08,091 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #7.
+2022-09-03 19:58:08,438 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #8.
+2022-09-03 19:58:08,552 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #9.
+2022-09-03 19:58:35,998 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #10.
+2022-09-03 19:59:03,198 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #11.
+2022-09-03 19:59:03,544 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #12.
+2022-09-03 19:59:03,623 (cikm_cup:67) INFO: Loading CIKMCUP data for Client #13.
+2022-09-03 19:59:20,508 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: fedem_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: fedem
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 1
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 0
+  task: graph
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\fedem_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903195806
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.25
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-03 19:59:20,516 (worker_builder:73) WARNING: Server for method fedem is not implemented. Will use default one
+2022-09-03 19:59:20,530 (worker_builder:22) WARNING: Clients for method fedem is not implemented. Will use default one
+2022-09-03 19:59:21,066 (aggregator_builder:21) WARNING: Aggregator for method fedem is not implemented. Will use default one
+2022-09-03 19:59:21,067 (fed_runner:249) INFO: Server #0 has been set up ... 
+2022-09-03 19:59:21,083 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.263789
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: fedem_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: fedem
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 1
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\fedem_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903195806
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.05
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-03 19:59:21,276 (trainer:142) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2022-09-03 19:59:21,399 (fed_runner:302) INFO: Client 1 has been set up ... 
+2022-09-03 19:59:21,413 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.289617
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: fedem_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: fedem
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 1
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\fedem_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903195806
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.003
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-03 19:59:21,460 (trainer:142) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2022-09-03 19:59:21,461 (fed_runner:302) INFO: Client 2 has been set up ... 
+2022-09-03 19:59:21,478 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.355404
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: fedem_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: fedem
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 1
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\fedem_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903195806
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.0004
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-03 19:59:21,724 (trainer:142) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2022-09-03 19:59:21,725 (fed_runner:302) INFO: Client 3 has been set up ... 
+2022-09-03 19:59:21,740 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.176471
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: fedem_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: fedem
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 1
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\fedem_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903195806
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.005
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-03 19:59:21,795 (trainer:142) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2022-09-03 19:59:21,796 (fed_runner:302) INFO: Client 4 has been set up ... 
+2022-09-03 19:59:21,824 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.396825
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: fedem_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: fedem
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 1
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\fedem_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903195806
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 8e-05
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-03 19:59:21,876 (trainer:142) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2022-09-03 19:59:21,877 (fed_runner:302) INFO: Client 5 has been set up ... 
+2022-09-03 19:59:21,894 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.26158
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: fedem_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: fedem
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 1
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\fedem_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903195806
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.0005
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-03 19:59:22,082 (trainer:142) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2022-09-03 19:59:22,083 (fed_runner:302) INFO: Client 6 has been set up ... 
+2022-09-03 19:59:22,098 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.302378
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: fedem_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: fedem
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 1
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\fedem_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903195806
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.005
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-03 19:59:22,349 (trainer:142) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2022-09-03 19:59:22,350 (fed_runner:302) INFO: Client 7 has been set up ... 
+2022-09-03 19:59:22,364 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: CrossEntropyLoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.211538
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'acc']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: fedem_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: fedem
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 1
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 2
+  task: graphClassification
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\fedem_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903195806
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.01
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-03 19:59:22,494 (trainer:142) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2022-09-03 19:59:22,495 (fed_runner:302) INFO: Client 8 has been set up ... 
+2022-09-03 19:59:22,510 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: MSELoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.059199
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'mse']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: fedem_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: fedem
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 1
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 1
+  task: graphRegression
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\fedem_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903195806
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.05
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-03 19:59:48,518 (trainer:142) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2022-09-03 19:59:48,520 (fed_runner:302) INFO: Client 9 has been set up ... 
+2022-09-03 19:59:48,536 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: MSELoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.007083
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'mse']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: fedem_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: fedem
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 1
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 10
+  task: graphRegression
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\fedem_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903195806
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.02
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-03 20:00:08,118 (trainer:142) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2022-09-03 20:00:08,120 (fed_runner:302) INFO: Client 10 has been set up ... 
+2022-09-03 20:00:08,136 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: MSELoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.734011
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'mse']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: fedem_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: fedem
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 1
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 1
+  task: graphRegression
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\fedem_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903195806
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.02
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-03 20:00:08,467 (trainer:142) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2022-09-03 20:00:08,469 (fed_runner:302) INFO: Client 11 has been set up ... 
+2022-09-03 20:00:08,485 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: MSELoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 1.361326
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'mse']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: fedem_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: fedem
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 1
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 1
+  task: graphRegression
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\fedem_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903195806
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.004
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-03 20:00:08,590 (trainer:142) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2022-09-03 20:00:08,591 (fed_runner:302) INFO: Client 12 has been set up ... 
+2022-09-03 20:00:08,606 (config:261) INFO: the used configs are: 
+asyn:
+  min_received_num: 13
+  min_received_rate: -1.0
+  timeout: 0
+  use: True
+attack:
+  alpha_TV: 0.001
+  alpha_prop_loss: 0
+  attack_method: 
+  attacker_id: -1
+  classifier_PIA: randomforest
+  info_diff_type: l2
+  inject_round: 0
+  max_ite: 400
+  reconstruct_lr: 0.01
+  reconstruct_optim: Adam
+  target_label_ind: -1
+backend: torch
+cfg_file: 
+criterion:
+  type: MSELoss
+data:
+  args: []
+  batch_size: 64
+  cSBM_phi: [0.5, 0.5, 0.5]
+  consistent_label_distribution: False
+  drop_last: False
+  graphsaint:
+    num_steps: 30
+    walk_length: 2
+  loader: 
+  num_workers: 0
+  pre_transform: []
+  quadratic:
+    dim: 1
+    max_curv: 12.5
+    min_curv: 0.02
+  root: data/
+  server_holds_all: False
+  shuffle: True
+  sizes: [10, 5]
+  splits: [0.8, 0.1, 0.1]
+  splitter: 
+  splitter_args: []
+  subsample: 1.0
+  target_transform: []
+  transform: []
+  type: cikmcup
+device: 0
+distribute:
+  use: False
+early_stop:
+  delta: 0.0
+  improve_indicator_mode: best
+  patience: 20
+  the_smaller_the_better: True
+eval:
+  base: 0.004389
+  best_res_update_round_wise_key: val_imp_ratio
+  count_flops: False
+  freq: 5
+  metrics: ['imp_ratio', 'mse']
+  monitoring: []
+  report: ['avg']
+  save_data: False
+  split: ['test', 'val']
+expname: fedem_gin_on_cikmcup_lr0.25_lstep16_
+expname_tag: 
+federate:
+  client_num: 13
+  data_weighted_aggr: False
+  ignore_weight: True
+  join_in_info: []
+  make_global_eval: False
+  method: fedem
+  mode: standalone
+  online_aggr: False
+  restore_from: 
+  sample_client_num: 13
+  sample_client_rate: -1.0
+  sampler: uniform
+  save_to: 
+  share_local_model: False
+  total_round_num: 1
+  unseen_clients_rate: 0.0
+  use_diff: False
+  use_ss: False
+fedopt:
+  use: False
+fedprox:
+  use: False
+fedsageplus:
+  a: 1.0
+  b: 1.0
+  c: 1.0
+  fedgen_epoch: 200
+  gen_hidden: 128
+  hide_portion: 0.5
+  loc_epoch: 1
+  num_pred: 5
+finetune:
+  batch_or_epoch: epoch
+  before_eval: False
+  freeze_param: 
+  local_update_steps: 1
+  optimizer:
+    lr: 0.1
+    type: SGD
+flitplus:
+  factor_ema: 0.8
+  lambdavat: 0.5
+  tmpFed: 0.5
+  weightReg: 1.0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: False
+grad:
+  grad_clip: -1.0
+hpo:
+  fedex:
+    cutoff: 0.0
+    diff: False
+    eta0: -1.0
+    flatten_ss: True
+    gamma: 0.0
+    num_arms: 16
+    sched: auto
+    ss: 
+    use: False
+  init_cand_num: 16
+  larger_better: False
+  log_scale: False
+  metric: client_summarized_weighted_avg.val_loss
+  num_workers: 0
+  pbt:
+    max_stage: 5
+    perf_threshold: 0.1
+  plot_interval: 1
+  scheduler: rs
+  sha:
+    budgets: []
+    elim_rate: 3
+    elim_round_num: 3
+  ss: 
+  table:
+    eps: 0.1
+    idx: 0
+    num: 27
+    ss: 
+  working_folder: hpo
+model:
+  dropout: 0.3
+  embed_size: 8
+  graph_pooling: mean
+  hidden: 64
+  in_channels: 0
+  layer: 2
+  model_num_per_trainer: 1
+  num_item: 0
+  num_user: 0
+  out_channels: 12
+  task: graphRegression
+  type: gin
+  use_bias: True
+nbafl:
+  use: False
+outdir: exp\fedem_gin_on_cikmcup_lr0.25_lstep16_\sub_exp_20220903195806
+personalization:
+  K: 5
+  beta: 1.0
+  local_param: ['encoder_atom', 'encoder', 'clf', 'norms', 'linear']
+  local_update_steps: 16
+  lr: 0.25
+  regular_weight: 0.1
+  share_non_trainable_para: False
+print_decimal_digits: 6
+regularizer:
+  mu: 0.0
+  type: 
+seed: 0
+sgdmf:
+  use: False
+train:
+  batch_or_epoch: batch
+  local_update_steps: 16
+  optimizer:
+    lr: 0.02
+    momentum: 0.9
+    type: SGD
+    weight_decay: 0.0005
+trainer:
+  type: flitplustrainer
+use_gpu: True
+verbose: 1
+vertical:
+  use: False
+wandb:
+  use: False
+2022-09-03 20:00:17,580 (trainer:142) INFO: Remove the hook `_hook_on_fit_end` from hooks_set at trigger `on_fit_end`
+2022-09-03 20:00:17,582 (fed_runner:302) INFO: Client 13 has been set up ... 
+2022-09-03 20:00:17,583 (trainer:324) INFO: Model meta-info: <class 'federatedscope.gfl.model.graph_level.GNN_Net_Graph'>.
+2022-09-03 20:00:17,584 (trainer:332) INFO: Num of original para names: 58.
+2022-09-03 20:00:17,584 (trainer:333) INFO: Num of original trainable para names: 44.
+2022-09-03 20:00:17,584 (trainer:335) INFO: Num of preserved para names in local update: 2. 
+Preserved para names in local update: {'gnn.convs.0.eps', 'gnn.convs.1.eps'}.
+2022-09-03 20:00:17,584 (trainer:339) INFO: Num of filtered para names in local update: 56. 
+Filtered para names in local update: {'encoder_atom.atom_embedding_list.16.weight', 'encoder_atom.atom_embedding_list.5.weight', 'gnn.convs.0.nn.norms.0.running_var', 'encoder_atom.atom_embedding_list.15.weight', 'encoder.bias', 'gnn.convs.0.nn.norms.1.bias', 'gnn.convs.0.nn.norms.1.num_batches_tracked', 'clf.weight', 'encoder_atom.atom_embedding_list.6.weight', 'encoder_atom.atom_embedding_list.17.weight', 'gnn.convs.0.nn.norms.0.num_batches_tracked', 'encoder_atom.atom_embedding_list.19.weight', 'encoder_atom.atom_embedding_list.2.weight', 'gnn.convs.1.nn.norms.1.running_mean', 'gnn.convs.1.nn.norms.1.num_batches_tracked', 'encoder_atom.atom_embedding_list.3.weight', 'gnn.convs.1.nn.norms.0.bias', 'gnn.convs.1.nn.linears.0.bias', 'gnn.convs.1.nn.norms.1.running_var', 'gnn.convs.1.nn.norms.0.running_var', 'gnn.convs.1.nn.linears.1.bias', 'gnn.convs.1.nn.norms.0.weight', 'gnn.convs.0.nn.norms.1.weight', 'encoder_atom.atom_embedding_list.14.weight', 'gnn.convs.0.nn.linears.1.bias', 'gnn.convs.1.nn.norms.0.num_batches_tracked', 'gnn.convs.0.nn.norms.0.running_mean', 'encoder_atom.atom_embedding_list.0.weight', 'gnn.convs.1.nn.linears.0.weight', 'gnn.convs.1.nn.norms.1.bias', 'encoder_atom.atom_embedding_list.8.weight', 'gnn.convs.0.nn.linears.1.weight', 'gnn.convs.1.nn.linears.1.weight', 'encoder_atom.atom_embedding_list.18.weight', 'encoder.weight', 'encoder_atom.atom_embedding_list.10.weight', 'gnn.convs.1.nn.norms.1.weight', 'encoder_atom.atom_embedding_list.7.weight', 'encoder_atom.atom_embedding_list.12.weight', 'gnn.convs.1.nn.norms.0.running_mean', 'linear.0.weight', 'gnn.convs.0.nn.norms.1.running_var', 'gnn.convs.0.nn.norms.0.bias', 'encoder_atom.atom_embedding_list.9.weight', 'linear.0.bias', 'encoder_atom.atom_embedding_list.4.weight', 'encoder_atom.atom_embedding_list.21.weight', 'gnn.convs.0.nn.linears.0.weight', 'encoder_atom.atom_embedding_list.1.weight', 'encoder_atom.atom_embedding_list.20.weight', 'gnn.convs.0.nn.norms.1.running_mean', 'encoder_atom.atom_embedding_list.11.weight', 'encoder_atom.atom_embedding_list.13.weight', 'gnn.convs.0.nn.linears.0.bias', 'gnn.convs.0.nn.norms.0.weight', 'clf.bias'}.
+2022-09-03 20:00:17,585 (trainer:344) INFO: After register default hooks,
+	the hooks_in_train is:
+	[
+	  {
+	    "on_fit_start": [
+	      "hook_on_fit_start_mixture_weights_update",
+	      "_hook_on_fit_start_flop_count",
+	      "_hook_on_fit_start_init",
+	      "_hook_on_fit_start_calculate_model_size",
+	      "record_initialization_local",
+	      "record_initialization_global"
+	    ],
+	    "on_epoch_start": [
+	      "_hook_on_epoch_start"
+	    ],
+	    "on_batch_start": [
+	      "hook_on_batch_start_track_batch_idx",
+	      "_hook_on_batch_start_init"
+	    ],
+	    "on_batch_forward": [
+	      "_hook_on_batch_forward",
+	      "_hook_on_batch_forward_regularizer",
+	      "_hook_on_batch_forward_flop_count",
+	      "hook_on_batch_forward_weighted_loss"
+	    ],
+	    "on_batch_backward": [
+	      "_hook_on_batch_backward"
+	    ],
+	    "on_batch_end": [
+	      "_hook_on_batch_end"
+	    ],
+	    "on_fit_end": [
+	      "_hook_on_fit_end",
+	      "del_initialization_local",
+	      "del_initialization_global",
+	      "_hook_on_fit_end_flop_count"
+	    ]
+	  }
+	];
+	the hooks_in_eval is:
+            t[
+	  {
+	    "on_fit_start": [
+	      "_hook_on_fit_start_init",
+	      "record_initialization_local",
+	      "record_initialization_global"
+	    ],
+	    "on_epoch_start": [
+	      "_hook_on_epoch_start"
+	    ],
+	    "on_batch_start": [
+	      "hook_on_batch_start_track_batch_idx",
+	      "_hook_on_batch_start_init"
+	    ],
+	    "on_batch_forward": [
+	      "_hook_on_batch_forward"
+	    ],
+	    "on_batch_end": [
+	      "hook_on_batch_end_gather_loss",
+	      "_hook_on_batch_end"
+	    ],
+	    "on_fit_end": [
+	      "_hook_on_fit_end_ensemble_eval",
+	      "del_initialization_local",
+	      "del_initialization_global"
+	    ]
+	  }
+	]
+2022-09-03 20:00:17,598 (server:635) INFO: ----------- Starting training (Round #0) -------------
+2022-09-03 20:00:23,183 (client:259) INFO: {'Role': 'Client #7', 'Round': 0, 'Results_raw': {'train_loss': 1076.58606, 'train_total': 1024, 'train_acc': 0.541016, 'train_avg_loss': 1.051354, 'train_imp_ratio': -51.79159}}
+2022-09-03 20:00:25,316 (client:259) INFO: {'Role': 'Client #12', 'Round': 0, 'Results_raw': {'train_loss': 6742.297974, 'train_total': 992, 'train_avg_loss': 6.796671, 'train_mse': 7.171224, 'train_imp_ratio': -426.782278}}
+2022-09-03 20:00:27,249 (client:259) INFO: {'Role': 'Client #5', 'Round': 0, 'Results_raw': {'train_loss': 1126.558216, 'train_total': 1004, 'train_acc': 0.544821, 'train_avg_loss': 1.12207, 'train_imp_ratio': -14.705294}}
+2022-09-03 20:00:29,825 (client:259) INFO: {'Role': 'Client #11', 'Round': 0, 'Results_raw': {'train_loss': 1954.877396, 'train_total': 1024, 'train_avg_loss': 1.90906, 'train_mse': 2.336841, 'train_imp_ratio': -218.365887}}
+2022-09-03 20:00:32,293 (client:259) INFO: {'Role': 'Client #3', 'Round': 0, 'Results_raw': {'train_loss': 1005.77549, 'train_total': 1024, 'train_acc': 0.564453, 'train_avg_loss': 0.982203, 'train_imp_ratio': -22.549795}}
+2022-09-03 20:01:32,345 (client:259) INFO: {'Role': 'Client #9', 'Round': 0, 'Results_raw': {'train_loss': 401.888076, 'train_total': 1024, 'train_avg_loss': 0.392469, 'train_mse': 0.465589, 'train_imp_ratio': -686.481269}}
+2022-09-03 20:01:34,250 (client:259) INFO: {'Role': 'Client #2', 'Round': 0, 'Results_raw': {'train_loss': 1073.45588, 'train_total': 969, 'train_acc': 0.467492, 'train_avg_loss': 1.107798, 'train_imp_ratio': -83.866189}}
+2022-09-03 20:01:36,359 (client:259) INFO: {'Role': 'Client #8', 'Round': 0, 'Results_raw': {'train_loss': 776.722384, 'train_total': 969, 'train_acc': 0.764706, 'train_avg_loss': 0.801571, 'train_imp_ratio': -11.230189}}
+2022-09-03 20:02:24,454 (client:259) INFO: {'Role': 'Client #10', 'Round': 0, 'Results_raw': {'train_loss': 89.843396, 'train_total': 1024, 'train_avg_loss': 0.087738, 'train_mse': 0.104262, 'train_imp_ratio': -1372.002678}}
+2022-09-03 20:02:26,107 (client:259) INFO: {'Role': 'Client #4', 'Round': 0, 'Results_raw': {'train_loss': 846.697289, 'train_total': 808, 'train_acc': 0.59901, 'train_avg_loss': 1.047893, 'train_imp_ratio': -127.227193}}
+2022-09-03 20:02:28,166 (client:259) INFO: {'Role': 'Client #1', 'Round': 0, 'Results_raw': {'train_loss': 947.294128, 'train_total': 1024, 'train_acc': 0.598633, 'train_avg_loss': 0.925092, 'train_imp_ratio': -52.154634}}
+2022-09-03 20:02:30,149 (client:259) INFO: {'Role': 'Client #6', 'Round': 0, 'Results_raw': {'train_loss': 1100.693573, 'train_total': 1024, 'train_acc': 0.269531, 'train_avg_loss': 1.074896, 'train_imp_ratio': -179.252523}}
+2022-09-03 20:03:08,977 (client:259) INFO: {'Role': 'Client #13', 'Round': 0, 'Results_raw': {'train_loss': 110.72153, 'train_total': 1024, 'train_avg_loss': 0.108126, 'train_mse': 0.134702, 'train_imp_ratio': -2969.084784}}
+2022-09-03 20:03:08,979 (server:332) INFO: Server #0: Training is finished! Starting evaluation.
+2022-09-03 20:04:41,993 (server:487) INFO: {'Role': 'Server #', 'Round': 1, 'Results_avg': {'test_loss': 7670.224593, 'test_total': 8350.846154, 'test_acc': 0.747951, 'test_avg_loss': 1.603143, 'test_imp_ratio': -681.416266, 'val_loss': 766.728467, 'val_total': 8350.461538, 'val_acc': 0.58048, 'val_avg_loss': 0.651637, 'val_imp_ratio': -172.554937, 'test_mse': 4.052556, 'val_mse': 1.087379}}
+2022-09-03 20:04:41,994 (server:386) INFO: Server #0: Final evaluation is finished! Starting merging results.
+2022-09-03 20:04:41,997 (server:416) INFO: {'Role': 'Server #', 'Round': 'Final', 'Results_raw': {'client_best_individual': {}, 'client_summarized_avg': {}}}
+2022-09-03 20:04:41,998 (server:437) INFO: {'Role': 'Client #1', 'Round': 1, 'Results_raw': {'test_loss': 182.080231, 'test_total': 417, 'test_acc': 1.0, 'test_avg_loss': 0.436643, 'test_imp_ratio': 100.0, 'val_loss': 218.70443, 'val_total': 416, 'val_acc': 0.615385, 'val_avg_loss': 0.525732, 'val_imp_ratio': -45.804179}}
+2022-09-03 20:04:41,998 (server:437) INFO: {'Role': 'Client #2', 'Round': 1, 'Results_raw': {'test_loss': 32.995674, 'test_total': 61, 'test_acc': 0.983607, 'test_avg_loss': 0.540913, 'test_imp_ratio': 94.339613, 'val_loss': 32.985731, 'val_total': 60, 'val_acc': 0.583333, 'val_avg_loss': 0.549762, 'val_imp_ratio': -43.868166}}
+2022-09-03 20:04:41,999 (server:437) INFO: {'Role': 'Client #3', 'Round': 1, 'Results_raw': {'test_loss': 340.64262, 'test_total': 740, 'test_acc': 1.0, 'test_avg_loss': 0.460328, 'test_imp_ratio': 100.0, 'val_loss': 402.047805, 'val_total': 740, 'val_acc': 0.560811, 'val_avg_loss': 0.543308, 'val_imp_ratio': -23.574633}}
+2022-09-03 20:04:42,000 (server:437) INFO: {'Role': 'Client #4', 'Round': 1, 'Results_raw': {'test_loss': 22.725061, 'test_total': 34, 'test_acc': 0.0, 'test_avg_loss': 0.668384, 'test_imp_ratio': -466.665344, 'val_loss': 17.517478, 'val_total': 34, 'val_acc': 0.676471, 'val_avg_loss': 0.51522, 'val_imp_ratio': -83.332906}}
+2022-09-03 20:04:42,001 (server:437) INFO: {'Role': 'Client #5', 'Round': 1, 'Results_raw': {'test_loss': 31.666009, 'test_total': 63, 'test_acc': 1.0, 'test_avg_loss': 0.502635, 'test_imp_ratio': 100.0, 'val_loss': 34.459681, 'val_total': 63, 'val_acc': 0.555556, 'val_avg_loss': 0.546979, 'val_imp_ratio': -12.000112}}
+2022-09-03 20:04:42,001 (server:437) INFO: {'Role': 'Client #6', 'Round': 1, 'Results_raw': {'test_loss': 182.852562, 'test_total': 367, 'test_acc': 1.0, 'test_avg_loss': 0.498236, 'test_imp_ratio': 100.0, 'val_loss': 213.586138, 'val_total': 367, 'val_acc': 0.242507, 'val_avg_loss': 0.581979, 'val_imp_ratio': -189.583756}}
+2022-09-03 20:04:42,002 (server:437) INFO: {'Role': 'Client #7', 'Round': 1, 'Results_raw': {'test_loss': 378.731166, 'test_total': 743, 'test_acc': 1.0, 'test_avg_loss': 0.509732, 'test_imp_ratio': 100.0, 'val_loss': 407.688009, 'val_total': 743, 'val_acc': 0.54105, 'val_avg_loss': 0.548705, 'val_imp_ratio': -51.780289}}
+2022-09-03 20:04:42,003 (server:437) INFO: {'Role': 'Client #8', 'Round': 1, 'Results_raw': {'test_loss': 280.954951, 'test_total': 260, 'test_acc': 0.0, 'test_avg_loss': 1.080596, 'test_imp_ratio': -372.728304, 'val_loss': 88.162554, 'val_total': 259, 'val_acc': 0.868726, 'val_avg_loss': 0.340396, 'val_imp_ratio': 37.943003}}
+2022-09-03 20:04:42,004 (server:437) INFO: {'Role': 'Client #9', 'Round': 1, 'Results_raw': {'test_loss': 89003.947649, 'test_total': 44902, 'test_avg_loss': 1.982182, 'test_mse': 2.493122, 'test_imp_ratio': -4111.426039, 'val_loss': 5131.789108, 'val_total': 44902, 'val_avg_loss': 0.114289, 'val_mse': 0.143371, 'val_imp_ratio': -142.184181}}
+2022-09-03 20:04:42,005 (server:437) INFO: {'Role': 'Client #10', 'Round': 1, 'Results_raw': {'test_loss': 1945.490134, 'test_total': 36465, 'test_avg_loss': 0.053352, 'test_mse': 0.067106, 'test_imp_ratio': -847.422161, 'val_loss': 1051.790091, 'val_total': 36464, 'val_avg_loss': 0.028845, 'val_mse': 0.036264, 'val_imp_ratio': -411.98022}}
+2022-09-03 20:04:42,005 (server:437) INFO: {'Role': 'Client #11', 'Round': 1, 'Results_raw': {'test_loss': 3525.345881, 'test_total': 756, 'test_avg_loss': 4.663156, 'test_mse': 5.865796, 'test_imp_ratio': -699.142804, 'val_loss': 843.66917, 'val_total': 756, 'val_avg_loss': 1.115965, 'val_mse': 1.355089, 'val_imp_ratio': -84.614224}}
+2022-09-03 20:04:42,006 (server:437) INFO: {'Role': 'Client #12', 'Round': 1, 'Results_raw': {'test_loss': 1901.030177, 'test_total': 203, 'test_avg_loss': 9.364681, 'test_mse': 11.736104, 'test_imp_ratio': -762.108269, 'val_loss': 613.342525, 'val_total': 203, 'val_avg_loss': 3.021392, 'val_mse': 3.853484, 'val_imp_ratio': -183.068449}}
+2022-09-03 20:04:42,007 (server:437) INFO: {'Role': 'Client #13', 'Round': 1, 'Results_raw': {'test_loss': 1884.457598, 'test_total': 23550, 'test_avg_loss': 0.080019, 'test_mse': 0.100651, 'test_imp_ratio': -2193.258152, 'val_loss': 911.727349, 'val_total': 23549, 'val_avg_loss': 0.038716, 'val_mse': 0.04869, 'val_imp_ratio': -1009.366072}}
+2022-09-03 20:04:42,008 (monitor:121) INFO: In worker #0, the system-related metrics are: {'id': 0, 'fl_end_time_minutes': 5.349055, 'total_model_size': 0, 'total_flops': 0, 'total_upload_bytes': 530816, 'total_download_bytes': 25680, 'global_convergence_round': 0, 'local_convergence_round': 0, 'global_convergence_time_minutes': 0, 'local_convergence_time_minutes': 0}
+2022-09-03 20:04:42,010 (client:440) INFO: ================= client 1 received finish message =================
